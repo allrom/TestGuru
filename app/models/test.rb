@@ -1,6 +1,8 @@
 class Test < ApplicationRecord
+  has_and_belongs_to_many :users
+  belongs_to :category
+
   def self.pick_by_category(category_title)
-    category_id = Category.find_by(title: category_title)
-    where("category_id = ?", category_id).order('id DESC')
+    Test.joins(:category).where("categories.title = ?", category_title).order('id DESC')
   end
 end

@@ -6,70 +6,56 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 #
-# Clears all data, then seeds
+# Clears all data, then seeds tables
 Answer.delete_all
 Question.delete_all
-Test.delete_all
+Test.destroy_all
 Category.delete_all
-User.delete_all
+User.destroy_all
 
 ActiveRecord::Base.connection.tables.each do |t|
   ActiveRecord::Base.connection.reset_pk_sequence!(t)
 end
 
-users = [
+users = User.create([
   { identity: "Ivan Dyakovich" },
   { identity: "Dave Choker" },
-  { identity: "Brian Lomm" },
   { identity: "Chris Malt" }
-]
+])
 
-categories = [
+categories = Category.create([
   { title: "FrontEnd" },
   { title: "BackEnd" },
   { title: "BigData" }
-]
+])
 
-tests = [
-  { title: "Ruby Language", level: 3, category_id: 2 },
-  { title: "PHP Language", level: 3, category_id: 2 },
-  { title: "HTML", level: 2, category_id: 1 },
-  { title: "JavaScript", level: 3, category_id: 1 },
-  { title: "BigData Platforms", level: 1, category_id: 3 }
-]
+tests = Test.create([
+  { title: "Ruby Language", level: 3, category_id: categories[1].id },
+  { title: "PHP Language", level: 3, category_id: categories[1].id },
+  { title: "HTML", level: 2, category_id: categories[0].id },
+  { title: "JavaScript", level: 3, category_id: categories[0].id },
+  { title: "BigData Platforms", level: 1, category_id: categories[2].id }
+])
 
-questions = [
-  { body: "What are different Ruby editors?", test_id: 1 },
-  { body: "What are different variables in Ruby?", test_id: 1 },
-  { body: "How is it possible to parse a configuration file?", test_id: 4 },
-  { body: "What is PHP?", test_id: 2 },
-  { body: "What are attributes and how do you use them?", test_id: 3 },
-  { body: "What is Big Data?", test_id: 5 }
-]
+questions = Question.create([
+  { body: "What are different Ruby editors?", test_id: tests[0].id },
+  { body: "What are different variables in Ruby?", test_id: tests[0].id },
+  { body: "How is it possible to parse a configuration file?", test_id: tests[3].id },
+  { body: "What is PHP?", test_id: tests[1].id },
+  { body: "What are attributes and how do you use them?", test_id: tests[2].id },
+  { body: "What is Big Data?", test_id: tests[4].id }
+])
 
-answers = [
-  { body: "Atom, Sublime", correct: true, question_id: 1, user_id: 1 },
-  { body: "local, global, class, instance", correct: true, question_id: 2, user_id: 3 },
-  { body: "win word", question_id: 3, user_id: 2 },
-  { body: "open source scripting language", correct: true, question_id: 4, user_id: 1 }
-]
+answers = Answer.create([
+  { body: "Atom, Sublime", correct: true, question_id: questions[0].id },
+  { body: "local, global, class, instance", correct: true, question_id: questions[1].id },
+  { body: "win word", question_id: questions[2].id },
+  { body: "open source scripting language", correct: true, question_id: questions[3].id }
+])
 
-users.each do |user|
-  User.create user
-end
-
-categories.each do |category|
-  Category.create category
-end
-
-tests.each do |test|
-  Test.create test
-end
-
-questions.each do |question|
-  Question.create question
-end
-
-answers.each do |answer|
-  Answer.create answer
+# populates the users <-> tests join table
+User.all.find_each do |user|
+  2.times do
+    user.tests << tests.sample
+  end
 end
