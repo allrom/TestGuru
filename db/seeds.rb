@@ -13,14 +13,15 @@ Test.destroy_all
 Category.delete_all
 User.destroy_all
 
+
 ActiveRecord::Base.connection.tables.each do |t|
   ActiveRecord::Base.connection.reset_pk_sequence!(t)
 end
 
 users = User.create([
+  { identity: "Administrator" },
   { identity: "Ivan Dyakovich" },
-  { identity: "Dave Choker" },
-  { identity: "Chris Malt" }
+  { identity: "Dave Choker" }
 ])
 
 categories = Category.create([
@@ -30,11 +31,11 @@ categories = Category.create([
 ])
 
 tests = Test.create([
-  { title: "Ruby Language", level: 3, category_id: categories[1].id },
-  { title: "PHP Language", level: 3, category_id: categories[1].id },
-  { title: "HTML", level: 2, category_id: categories[0].id },
-  { title: "JavaScript", level: 3, category_id: categories[0].id },
-  { title: "BigData Platforms", level: 1, category_id: categories[2].id }
+  { title: "Ruby Language", level: 3, category_id: categories[1].id, author_id: User.first.id },
+  { title: "PHP Language", level: 3, category_id: categories[1].id, author_id: User.first.id },
+  { title: "HTML", level: 2, category_id: categories[0].id, author_id: User.first.id },
+  { title: "JavaScript", level: 3, category_id: categories[0].id, author_id: User.first.id },
+  { title: "BigData Platforms", level: 1, category_id: categories[2].id, author_id: User.first.id }
 ])
 
 questions = Question.create([
