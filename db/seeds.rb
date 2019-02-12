@@ -13,15 +13,14 @@ Test.destroy_all
 Category.delete_all
 User.destroy_all
 
-
 ActiveRecord::Base.connection.tables.each do |t|
   ActiveRecord::Base.connection.reset_pk_sequence!(t)
 end
 
 users = User.create([
-  { identity: "Administrator" },
-  { identity: "Ivan Dyakovich" },
-  { identity: "Dave Choker" }
+  { identity: "Administrator", email: "adm@testguru.edu" },
+  { identity: "Ivan Reeds", email: "ivan.reeds@testguru.edu" },
+  { identity: "Dave Choker", email: "dave.choker@testguru.edu" }
 ])
 
 categories = Category.create([
@@ -31,7 +30,7 @@ categories = Category.create([
 ])
 
 tests = Test.create([
-  { title: "Ruby Language", level: 3, category_id: categories[1].id, author_id: User.first.id },
+  { title: "Ruby Language", level: 5, category_id: categories[1].id, author_id: User.first.id },
   { title: "PHP Language", level: 3, category_id: categories[1].id, author_id: User.first.id },
   { title: "HTML", level: 2, category_id: categories[0].id, author_id: User.first.id },
   { title: "JavaScript", level: 3, category_id: categories[0].id, author_id: User.first.id },
@@ -41,7 +40,7 @@ tests = Test.create([
 questions = Question.create([
   { body: "What are different Ruby editors?", test_id: tests[0].id },
   { body: "What are different variables in Ruby?", test_id: tests[0].id },
-  { body: "How is it possible to parse a configuration file?", test_id: tests[3].id },
+  { body: "How is it possible to parse a configuration file?", test_id: tests[1].id },
   { body: "What is PHP?", test_id: tests[1].id },
   { body: "What are attributes and how do you use them?", test_id: tests[2].id },
   { body: "What is Big Data?", test_id: tests[4].id }
