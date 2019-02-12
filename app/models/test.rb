@@ -9,16 +9,15 @@ class Test < ApplicationRecord
 
   validates :level, numericality: { greater_than_or_equal_to: 0 }
 
-  scope :pick_by_category, -> title {
-    joins(:category)
-      .where("categories.title = ?", title)
-      .order(title: :desc)
-      .pluck(:title)
+  scope :scope_by_category, -> title {
+    joins(:category).where("categories.title = ?", title)
   }
+
+  def self.pick_by_category(title)
+    scope_by_category(title).order(title: :desc).pluck(:title)
+  end
 
   scope :simple, -> { where(:level => 0..1) }
   scope :moderate, -> { where(:level => 2..4) }
   scope :complex, -> { where(:level => 5..Float::INFINITY) }
-
-  scope :test_by_level, -> level { where(level: level) }
 end
