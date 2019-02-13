@@ -4,11 +4,11 @@ class Question < ApplicationRecord
 
   validates :body, presence: true
 
-  validate :validate_answers_count, on: :update
+  validate :validate_total_answers, on: :update
 
   private
 
-  def validate_answers_count
-    errors.add(:answers) unless answers.size.between?(1, 4)
+  def validate_total_answers
+    errors.add(:answers) unless answers.size < 5
   end
 end
