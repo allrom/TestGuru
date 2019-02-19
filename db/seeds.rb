@@ -48,9 +48,9 @@ questions = Question.create([
 
 answers = Answer.create([
   { body: "Atom, Sublime", correct: true, question_id: questions[0].id },
-  { body: "Local, global, class, instance", correct: true, question_id: questions[0].id },
-  { body: "Win word", question_id: questions[0].id },
-  { body: "Open source scripting language", correct: true, question_id: questions[0].id },
+  { body: "Local, global, class, instance", correct: true, question_id: questions[1].id },
+  { body: "Win word", question_id: questions[2].id },
+  { body: "Open source scripting language", correct: true, question_id: questions[3].id },
   { body: "Large and complex datasets", correct: true, question_id: questions[5].id }
 ])
 
