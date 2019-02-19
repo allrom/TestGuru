@@ -1,10 +1,10 @@
 class QuestionsController < ApplicationController
-  before_action :find_test, only: :index
+  before_action :find_test, only: %i[index create]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
   def index
-    @questions = Question.where(:test_id => @test.id)
+    @questions = @test.questions
 
     render inline: '<p>* Question(s) *</p>
                     <p><%= @questions.pluck(:body).join("<br/>").html_safe %></p>'
@@ -16,19 +16,20 @@ class QuestionsController < ApplicationController
     render inline: '<p>Requested Question is: <%= @question.body %></p>'
   end
 
-  def new
-    @test_id = params[:test_id]
-  end
+  def new; end
 
   def create
-    new_question = Question.create(new_question_params)
-
-    render plain: new_question.inspect
+    new_question = @test.questions.new(new_question_params)
+    if new_question.save
+      redirect_to question_path(new_question), :notice => "New Question created..."
+    else
+      render action: new
+    end
   end
 
   def destroy
     question = Question.destroy(params[:id])
-    redirect_to root_path, notice: "Question '#{question.id}' deleted..."
+    redirect_to root_path, :notice => "Question '#{question.id}' deleted..."
   end
 
   private
@@ -38,10 +39,10 @@ class QuestionsController < ApplicationController
   end
 
   def rescue_with_question_not_found
-    render plain: 'Question not found...'
+    render plain: 'Question not found...', status: 404
   end
 
   def new_question_params
-    params.require(:question).permit(:body, :test_id)
+    params.require(:question).permit(:body)
   end
 end

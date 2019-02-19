@@ -10,6 +10,11 @@
   </head>
 
   <body>
+
+    <%- flash.each do |name, message| %>
+      <p><i><%= "#{name}: #{message}" %></i></p>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>
