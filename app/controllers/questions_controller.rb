@@ -4,10 +4,11 @@ class QuestionsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
   def index
-    @questions = @test.questions
+    questions_list = @test.questions
 
     render inline: '<p>* Question(s) *</p>
-                    <p><%= @questions.pluck(:body).join("<br/>").html_safe %></p>'
+                    <p><%= questions.pluck(:body).join("<br/>").html_safe %></p>',
+           :locals => { :questions => questions_list }
   end
 
   def show
@@ -23,7 +24,7 @@ class QuestionsController < ApplicationController
     if new_question.save
       redirect_to question_path(new_question), :notice => "New Question created..."
     else
-      render action: new
+      render :new
     end
   end
 
