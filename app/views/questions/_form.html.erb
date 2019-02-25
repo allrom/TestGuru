@@ -1,0 +1,15 @@
+<%= form_with(model: model, local: true) do |form| %>
+  <h3><span style="color:blue">
+        <%= question_header(@test, @question) %>
+      </span>
+  </h3>
+
+  <%= render 'shared/errors', resource: @question %>
+
+  <p>
+    <%= form.label :body %><br>
+    <%= form.text_field :body %>
+  </p><br>
+
+  <p><%= form.submit %></p>
+<% end %>

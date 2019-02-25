@@ -1,36 +1,52 @@
 class QuestionsController < ApplicationController
-  before_action :find_test, only: %i[index create]
+  before_action :find_test, only: %i[index create new]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
-  def index
-    questions_list = @test.questions
-
-    render inline: '<p>* Question(s) *</p>
-                    <p><%= questions.pluck(:body).join("<br/>").html_safe %></p>',
-           :locals => { :questions => questions_list }
-  end
+  def index; end
 
   def show
+    ## logger.debug(self.object_id)
     @question = Question.find(params[:id])
-
-    render inline: '<p>Requested Question is: <%= @question.body %></p>'
   end
 
-  def new; end
+  def new
+    @question = Question.new
+  end
+
+  def edit
+    @question = Question.find(params[:id])
+  end
 
   def create
-    new_question = @test.questions.new(new_question_params)
-    if new_question.save
-      redirect_to question_path(new_question), :notice => "New Question created..."
+    @question = @test.questions.new(new_question_params)
+    if @question.save
+      redirect_to question_path(@question), :notice => "New Question created..."
     else
       render :new
     end
   end
 
+  def update
+    @question = Question.find(params[:id])
+
+    if @question.update(new_question_params)
+      redirect_to question_path(@question), :notice => "Question updated..."
+    else
+      render :edit
+    end
+  end
+
   def destroy
-    question = Question.destroy(params[:id])
-    redirect_to root_path, :notice => "Question '#{question.id}' deleted..."
+    @question = Question.find(params[:id])
+    if @question.answers.any?
+      redirect_to question_path(@question),
+                  :notice => "Can't delete, Question has related answers..."
+    else
+      @question.destroy
+      redirect_to test_questions_path(:test_id => @question.test_id),
+                  :notice => "Question deleted..."
+    end
   end
 
   private

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>TestGuru</title>
+    <title>* TestGuru *</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,11 +10,11 @@
   </head>
 
   <body>
-
     <%- flash.each do |name, message| %>
       <p><i><%= "#{name}: #{message}" %></i></p>
     <% end %>
 
     <%= yield %>
+    <%= render 'layouts/footer' %>
   </body>
 </html>
