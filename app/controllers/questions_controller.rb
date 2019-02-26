@@ -1,22 +1,17 @@
 class QuestionsController < ApplicationController
   before_action :find_test, only: %i[index create new]
+  before_action :find_question, only: %i[show edit update destroy]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
-  def index; end
-
-  def show
-    ## logger.debug(self.object_id)
-    @question = Question.find(params[:id])
-  end
+  def show; end
 
   def new
+    ## logger.debug(self.object_id)
     @question = Question.new
   end
 
-  def edit
-    @question = Question.find(params[:id])
-  end
+  def edit; end
 
   def create
     @question = @test.questions.new(new_question_params)
@@ -28,8 +23,6 @@ class QuestionsController < ApplicationController
   end
 
   def update
-    @question = Question.find(params[:id])
-
     if @question.update(new_question_params)
       redirect_to question_path(@question), :notice => "Question updated..."
     else
@@ -38,21 +31,19 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
-    @question = Question.find(params[:id])
-    if @question.answers.any?
-      redirect_to question_path(@question),
-                  :notice => "Can't delete, Question has related answers..."
-    else
-      @question.destroy
-      redirect_to test_questions_path(:test_id => @question.test_id),
-                  :notice => "Question deleted..."
-    end
+    @question.destroy
+    redirect_to test_path(:id => @question.test_id),
+                :notice => "Question deleted..."
   end
 
   private
 
   def find_test
     @test = Test.find(params[:test_id])
+  end
+
+  def find_question
+    @question = Question.find(params[:id])
   end
 
   def rescue_with_question_not_found
