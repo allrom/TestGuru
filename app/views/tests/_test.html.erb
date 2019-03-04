@@ -1,6 +1,9 @@
 <tr align = "center">
   <td><%= test.id %></td>
-  <td align = "left"><%= link_to test.title, test_path(test) %></td>
+  <td align = "left"><%= test.title %></td>
   <td><%=  test.level %></td>
   <td><%=  test.questions.count %></td>
+  <td><%= link_to 'Show', test_path(test) %></td>
+  <!--<td><%#= link_to 'Edit', edit_test_path(test) %></td>-->
+  <td><%= button_to 'Start', start_test_path(test) %></td>
 </tr>

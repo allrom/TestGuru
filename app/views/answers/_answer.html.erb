@@ -1,11 +1,11 @@
 <tr>
-  <td align = "center"><%= question.id %></td>
-  <td><%= question.body %></td>
-  <td><%= link_to 'Show', question_path(question) %></td>
-  <td><%= link_to 'Edit', edit_question_path(question) %></td>
+    <td align = "center"><%= answer.id %></td>
+  <td><%= answer.body %></td>
+  <td><%= link_to 'Show', answer_path(answer) %></td>
+  <td><%= link_to 'Edit', edit_answer_path(answer) %></td>
   <td>
       <%= link_to 'Delete',
-                  question_path(question),
+                  answer_path(answer),
                   method: :delete,
                   data: { confirm: 'Are You Sure?' } %>
   </td>

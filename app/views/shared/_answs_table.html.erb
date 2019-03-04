@@ -1,13 +1,13 @@
 <h3>
-    <%= pluralize(@test.questions.count, 'Question') %> total:
+    <%= pluralize(@question.answers.count, 'Answer') %> total:
 </h3>
 
 <table border = "1" width = "50%" cellpadding = "4">
     <tr>
         <th>Id</th>
-        <th>Question's Content</th>
+        <th>Answer's Content</th>
         <th colspan="3">Actions</th>
     </tr>
 
-    <%= render @test.questions %>
+    <%= render @question.answers %>
 </table>

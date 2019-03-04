@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 #
 # Clears all data, then seeds tables
+TestPassage.destroy_all
 Answer.delete_all
 Question.delete_all
 Test.destroy_all
@@ -40,23 +41,40 @@ tests = Test.create([
 questions = Question.create([
   { body: "What are different Ruby editors?", test_id: tests[0].id },
   { body: "What are different variables in Ruby?", test_id: tests[0].id },
+  { body: "Who is Ruby Inventor?", test_id: tests[0].id },
+  { body: "What does a \"Class\" means?", test_id: tests[0].id },
+  { body: "Arguments pass to methods by appending brackets to its name", test_id: tests[0].id },
+  { body: "What is \"initialize\" method?", test_id: tests[0].id },
+  { body: "What are Ruby data types?", test_id: tests[0].id },
   { body: "How is it possible to parse a configuration file?", test_id: tests[1].id },
   { body: "What is PHP?", test_id: tests[1].id },
-  { body: "What are attributes and how do you use them?", test_id: tests[2].id },
+  { body: "What are heading tags and how do you use them?", test_id: tests[2].id },
+  { body: "What is JavaScript file extension?", test_id: tests[3].id },
   { body: "What is Big Data?", test_id: tests[4].id }
 ])
 
 answers = Answer.create([
   { body: "Atom, Sublime", correct: true, question_id: questions[0].id },
+  { body: "NotePad", question_id: questions[0].id },
   { body: "Local, global, class, instance", correct: true, question_id: questions[1].id },
-  { body: "Win word", question_id: questions[2].id },
-  { body: "Open source scripting language", correct: true, question_id: questions[3].id },
-  { body: "Large and complex datasets", correct: true, question_id: questions[5].id }
+  { body: "Matz", correct: true, question_id: questions[2].id },
+  { body: "Ruby Rode", question_id: questions[2].id },
+  { body: "A class is the blueprint from which  objects are created", correct: true, question_id: questions[3].id },
+  { body: "No, by appending parentheses", correct: true, question_id: questions[4].id },
+  { body: "It's a special Ruby method", correct: true, question_id: questions[5].id },
+  { body: "Numbers", correct: true, question_id: questions[6].id },
+  { body: "Scripts", question_id: questions[6].id },
+  { body: "Hashes", correct: true, question_id: questions[6].id },
+  { body: "Win word", question_id: questions[7].id },
+  { body: "Open source scripting language", correct: true, question_id: questions[8].id },
+  { body: "Avoid using heading markup tags", question_id: questions[9].id },
+  { body: "\*.jvs", question_id: questions[10].id },
+  { body: "Large and complex datasets", correct: true, question_id: questions[11].id }
 ])
 
 # populates the users <-> tests join table
-User.all.find_each do |user|
-  2.times do
-    user.tests << tests.sample
-  end
-end
+## User.all.find_each do |user|
+##  2.times do
+##    user.tests << tests.sample
+##  end
+## end
