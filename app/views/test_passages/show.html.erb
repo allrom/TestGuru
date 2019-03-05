@@ -3,10 +3,8 @@
 </p>
 
 <p><i>
-  <% start = @test_passage.test.questions.first.id %>
-  <% current = @test_passage.current_question.id %>
   <% total = @test_passage.test.questions.count %>
-  <%= "Question No #{current - start + 1} of #{total} total" %>
+  <%= "Question No #{@test_passage.current_question_number} of #{total} total" %>
 </i></p>
 
 <p><%= @test_passage.current_question.body %></p>

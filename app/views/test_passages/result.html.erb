@@ -3,14 +3,14 @@
 </p>
 
 <p>
-  <% if pass? %>
-    <span style="color:mediumseagreen">
-      <%= "#{result_percentage} %" %>
+  <% if @test_passage.pass? %>
+    <span class = "passed">
+      <%= @test_passage.result_percentage %> %
     </span>
     <strong> - Passed</strong>
   <% else %>
-    <span style="color:red">
-       <%= "#{result_percentage} %" %>
+    <span class = "failed">
+       <%= @test_passage.result_percentage %> %
     </span>
     <strong> - Failed</strong>
   <% end %>
