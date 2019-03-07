@@ -13,4 +13,14 @@ class User < ApplicationRecord
   def test_passage(test)
     test_passages.order(updated_at: :desc).find_by(test_id: test.id)
   end
+
+  def authenticate(password_string)
+    digest(password_string) == self.password_digest ? self : false
+  end
+
+  private
+
+  def digest(string)
+    Digest::SHA1.hexdigest(string)
+  end
 end

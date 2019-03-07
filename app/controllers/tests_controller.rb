@@ -54,6 +54,6 @@ class TestsController < ApplicationController
   end
 
   def find_user
-    @user = User.find(2)
+    @user = User.first
   end
 end
