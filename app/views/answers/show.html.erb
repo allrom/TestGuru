@@ -1,0 +1,20 @@
+<p style="font-size:large">
+  <strong>Requested Answer is:</strong>&nbsp;
+  <%= @answer.body %>
+</p>
+
+<p style="font-size:medium">
+  <strong>Binded Question is:</strong>&nbsp;
+  <%= @answer.question.body %>
+</p>
+
+<p>
+  <b>Correct?</b>
+  <%= @answer.correct %>
+</p><br>
+
+<p><%= link_to 'Edit Answer', edit_answer_path(@answer) %></p>
+
+<p><%= link_to 'Back', question_path(@answer.question) %></p>
+
+<p><%= link_to 'Home', root_path %></p>

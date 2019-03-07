@@ -4,12 +4,12 @@
       </span>
   </h3>
 
-  <%= render 'shared/errors', resource: @question %>
+<%= render 'shared/errors', resource: @question %>
 
   <p>
-    <%= form.label :body %><br>
+    <%= form.label :body %>
     <%= form.text_field :body %>
   </p><br>
 
-  <p><%= form.submit %></p>
+  <p><%= form.submit %></p><br>
 <% end %>

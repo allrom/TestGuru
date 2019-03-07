@@ -1,0 +1,27 @@
+<p style="font-size:medium">
+  <strong>Passing the * <%= @test_passage.test.title %> * Test:</strong>&nbsp;
+</p>
+
+<p><i>
+  <% total = @test_passage.test.questions.count %>
+  <%= "Question No #{@test_passage.current_question_number} of #{total} total" %>
+</i></p>
+
+<p><%= @test_passage.current_question.body %></p>
+
+<p>
+  <%= form_with url: test_passage_path(@test_passage), local: true, method: :put do |form| %>
+      <%= form.collection_check_boxes \
+        :answer_ids,
+        @test_passage.current_question.answers, :id, :body, include_hidden: false  do |b| %>
+          <p>
+            <%= b.check_box id: "answer_ids_#{b.object.id}" %>
+            <%= b.label %>
+          </p>
+      <% end %>
+
+    <p><%= form.submit "Next" %></p>
+  <% end %>
+</p><br>
+
+<p><%= link_to 'Home', root_path %></p>

@@ -1,0 +1,19 @@
+<p style="font-size:medium">
+  <strong>The * <%= @test_passage.test.title %> * Test Completed</strong>&nbsp;
+</p>
+
+<p>
+  <% if @test_passage.pass? %>
+    <span class = "passed">
+      <%= @test_passage.result_percentage %> %
+    </span>
+    <strong> - Passed</strong>
+  <% else %>
+    <span class = "failed">
+       <%= @test_passage.result_percentage %> %
+    </span>
+    <strong> - Failed</strong>
+  <% end %>
+</p>
+
+<p><%= link_to 'Home', root_path %></p>
