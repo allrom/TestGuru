@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
     if @user.save
       session[:user_id] = @user.id
-      redirect_to tests_path, :notice => "Signed Up & Logged in..."
+      redirect_to tests_path, notice: "Signed Up & Logged in..."
     else
       render :new
     end

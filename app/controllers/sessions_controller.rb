@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
 
     if user&.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to cookies[:path], :notice => "Logged in..."
+      redirect_to cookies[:path] || root_path, notice: "Logged in..."
       cookies.delete(:path)
     else
       flash.now[:alert] = 'E-mail or password is empty\invalid...'

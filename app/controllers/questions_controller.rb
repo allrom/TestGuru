@@ -17,7 +17,7 @@ class QuestionsController < ApplicationController
   def create
     @question = @test.questions.new(new_question_params)
     if @question.save
-      redirect_to question_path(@question), :notice => "New Question created..."
+      redirect_to question_path(@question), notice: "New Question created..."
     else
       render :new
     end
@@ -25,7 +25,7 @@ class QuestionsController < ApplicationController
 
   def update
     if @question.update(new_question_params)
-      redirect_to question_path(@question), :notice => "Question updated..."
+      redirect_to question_path(@question), notice: "Question updated..."
     else
       render :edit
     end
@@ -34,7 +34,7 @@ class QuestionsController < ApplicationController
   def destroy
     @question.destroy
     redirect_to test_path(:id => @question.test_id),
-                :notice => "Question deleted..."
+                notice: "Question deleted..."
   end
 
   private
