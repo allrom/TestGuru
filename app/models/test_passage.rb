@@ -5,9 +5,6 @@ class TestPassage < ApplicationRecord
   belongs_to :test
   belongs_to :current_question, class_name: "Question", optional: true
 
-  ## before_validation :before_validation_set_first_question, on: :create
-  ## before_update     :before_update_set_next_question, unless: :completed?
-
   before_save :before_save_set_next_question, on: %i[create, update]
 
   def completed?
@@ -18,7 +15,6 @@ class TestPassage < ApplicationRecord
     answer_ids ||= []
     self.correct_questions += 1 if correct_answer?(answer_ids)
 
-    ## self.current_question = next_question
     save!
   end
 
@@ -33,18 +29,10 @@ class TestPassage < ApplicationRecord
   end
 
   def current_question_number
-    self.test.questions.pluck(:id).index(current_question.id) + 1
+    self.test.questions.index(current_question) + 1
   end
 
   private
-
-  ## def before_validation_set_first_question
-  ##   self.current_question = test.questions.first if test.present?
-  ## end
-
-  ## def before_update_set_next_question
-  ##   self.current_question = next_question
-  ## end
 
   def before_save_set_next_question
     self.current_question = self.new_record? ? test.questions.first : next_question

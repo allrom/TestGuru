@@ -19,7 +19,7 @@ ActiveRecord::Base.connection.tables.each do |t|
 end
 
 users = User.create([
-  { identity: "Administrator", email: "adm@testguru.edu" }
+  { identity: "Administrator", email: "adm@testguru.edu", password: 'superguru' }
 ])
 
 categories = Category.create([
