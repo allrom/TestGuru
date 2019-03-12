@@ -1,6 +1,6 @@
 class TestsController < ApplicationController
+  before_action :authenticate_user!
   before_action :find_test, only: %i[show edit update destroy start]
-  before_action :find_user, only: :start
 
   def index
     ## logger.info(self.object_id)
@@ -21,7 +21,7 @@ class TestsController < ApplicationController
     if @test.save
       redirect to @test
     else
-      render :new, :notice => "New Test created..."
+      render :new, notice: "New Test created..."
     end
   end
 
@@ -29,18 +29,18 @@ class TestsController < ApplicationController
     if @test.update(test_params)
       redirect_to @test
     else
-      render :edit, :notice => "Test updated..."
+      render :edit, notice: "Test updated..."
     end
   end
 
   def start
-    @user.tests << @test
-    redirect_to @user.test_passage(@test)
+    current_user.tests << @test
+    redirect_to current_user.test_passage(@test)
   end
 
   def destroy
     @test.destroy
-    redirect_to tests_path, :notice => "Test deleted..."
+    redirect_to tests_path, notice: "Test deleted..."
   end
 
   private
@@ -51,9 +51,5 @@ class TestsController < ApplicationController
 
   def find_test
     @test = Test.find(params[:id])
-  end
-
-  def find_user
-    @user = User.first
   end
 end

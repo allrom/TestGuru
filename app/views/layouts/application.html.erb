@@ -10,9 +10,22 @@
   </head>
 
   <body>
-    <%- flash.each do |name, message| %>
-      <p><i><%= "#{name}: #{message}" %></i></p>
+    <% if logged_in? %>
+      <h3>
+        <p class = "greet user">
+          Welcome, <%= current_user.identity %>! On&nbsp;
+          <%= link_to '* Test Guru *', root_path %>
+        </p>
+      </h3>
+      <p><i><%= link_to 'Log Out', logout_path, method: 'delete' %></i></p>
+    <% else %>
+      <p><i>
+        <%= link_to 'Sign Up', signup_path %><br>
+        <%= link_to 'Log In', login_path %>
+      </i></p>
     <% end %>
+
+    <%= flash_message(:notice) %>
 
     <%= yield %>
     <%= render 'layouts/footer' %>
