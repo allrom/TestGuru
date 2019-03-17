@@ -13,3 +13,11 @@
  *= require_tree .
  *= require_self
  */
+input[type="number"] {
+  width: 35px;
+}
+
+label.required:after {
+  content: " *";
+  color: red;
+}

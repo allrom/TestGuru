@@ -1,0 +1,24 @@
+<%= form_with(model: model, local: true) do |form| %>
+  <h3><span style="color:blue">
+        <%= test_header(@test) %>
+      </span>
+  </h3>
+
+<%= render 'shared/errors', resource: @test %>
+  <p>
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </p><br>
+
+  <p>
+    <%= form.label :category_id %>
+    <%= form.collection_select :category_id, Category.all, :id, :title, prompt: true %>
+  </p><br>
+
+  <p>
+    <%= form.label :level %>
+    <%= form.number_field :level, max: 5 %>
+  </p><br>
+
+  <p><%= form.submit %></p><br>
+<% end %>

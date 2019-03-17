@@ -2,17 +2,21 @@
   border: 2px solid;
   padding: 8px;
   border-radius: 5px;
-  width: auto;
+  display: inline-block;
+  margin: 10px;
 }
 
 .flash.alert {
   position: relative;
   border-color: #ef2727;
-  width: 35%;
 }
 
 .flash.notice {
   position: relative;
   border-color: #228B22;
-  width: 35%;
+}
+
+.flash.hello {
+  position: relative;
+  border-color: #ffa500;
 }

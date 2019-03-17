@@ -18,8 +18,13 @@ ActiveRecord::Base.connection.tables.each do |t|
   ActiveRecord::Base.connection.reset_pk_sequence!(t)
 end
 
-users = User.create([
-  { identity: "Administrator", email: "adm@testguru.edu", password: 'superguru' }
+users = Admin.create([
+  {
+    identity_name: "Big",
+    identity_sname: "Guru",
+    email: "adm@testguru.edu",
+    password: 'super'
+    }
 ])
 
 categories = Category.create([
@@ -69,10 +74,3 @@ answers = Answer.create([
   { body: "\*.jvs", question_id: questions[10].id },
   { body: "Large and complex datasets", correct: true, question_id: questions[11].id }
 ])
-
-# populates the users <-> tests join table
-## User.all.find_each do |user|
-##  2.times do
-##    user.tests << tests.sample
-##  end
-## end

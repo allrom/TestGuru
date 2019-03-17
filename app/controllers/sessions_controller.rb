@@ -1,21 +1,7 @@
-class SessionsController < ApplicationController
-  def new; end
+class SessionsController < Devise::SessionsController
+  before_action :clear_welcome, only: :create
 
-  def create
-    user = User.find_by(email: params[:email])
-
-    if user&.authenticate(params[:password])
-      session[:user_id] = user.id
-      redirect_to cookies[:path] || root_path, notice: "Logged in..."
-      cookies.delete(:path)
-    else
-      flash.now[:alert] = 'E-mail or password is empty\invalid...'
-      render :new
-    end
-  end
-
-  def destroy
-    session[:user_id] = nil
-    redirect_to login_path
+  def clear_welcome
+    session[:welcome] = nil
   end
 end

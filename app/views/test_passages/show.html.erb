@@ -2,6 +2,7 @@
   <strong>Passing the * <%= @test_passage.test.title %> * Test:</strong>&nbsp;
 </p>
 
+<% if @test_passage.current_question %>
 <p><i>
   <% total = @test_passage.test.questions.count %>
   <%= "Question No #{@test_passage.current_question_number} of #{total} total" %>
@@ -23,5 +24,6 @@
     <p><%= form.submit "Next" %></p>
   <% end %>
 </p><br>
+<% end %>
 
-<p><%= link_to 'Home', root_path %></p>
+<p><%= link_to 'Home', @test_passage.user.is_a?(Admin) ? admin_root_path : root_path %></p>
