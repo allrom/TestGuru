@@ -1,0 +1,15 @@
+<h3><%= t('.header') %></h3>
+
+<table border = "1" width = "60%" cellpadding = "3">
+    <tr>
+        <th>Id</th>
+        <th>Test Title</th>
+        <th>Test Level</th>
+        <th>Questions Total</th>
+        <th colspan = "4">Actions</th>
+    </tr>
+
+    <%= render @tests %>
+</table>
+
+<p><%= link_to 'New Test', new_admin_test_path(@test) %></p>

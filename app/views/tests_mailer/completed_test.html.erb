@@ -1,0 +1,7 @@
+<h3 align = "center">* Fine! *</h3>
+
+<p>
+  Great! You've completed the <i><%= @test.title %></i> test.
+  Accomplish the rest! See
+  <%= link_to 'more', @user.admin? ? admin_tests_url : tests_url  %>.
+</p>

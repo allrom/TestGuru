@@ -29,7 +29,7 @@ class TestPassage < ApplicationRecord
   end
 
   def current_question_number
-    self.test.questions.index(current_question) + 1
+    self.test.questions.index(current_question) + 1 if current_question
   end
 
   private

@@ -9,7 +9,9 @@ module ApplicationHelper
             "https://github.com/#{author}/#{repo}", :target => "_blank"
   end
 
-  def flash_message(type)
-    content_tag :div, flash[type], class: "flash #{type}" if flash[type]
+  def flash_message
+    flash.map do |type, message|
+      content_tag :div, message, class: "flash #{type}" if flash[type]
+    end.join.html_safe
   end
 end
