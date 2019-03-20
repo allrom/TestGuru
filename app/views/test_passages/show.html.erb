@@ -26,4 +26,4 @@
 </p><br>
 <% end %>
 
-<p><%= link_to 'Home', @test_passage.user.is_a?(Admin) ? admin_root_path : root_path %></p>
+<p><%= link_to 'Home', @test_passage.user.admin? ? admin_root_path : root_path %></p>

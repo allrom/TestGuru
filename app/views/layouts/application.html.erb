@@ -15,7 +15,10 @@
         <p class = "greet user">
           Welcome, <%= current_user.identity_name %>
                    <%= current_user.identity_sname %>! On&nbsp;
-          <%= link_to '* Test Guru *', root_path %>
+          <%=
+            link_to '* Test Guru *', \
+            current_user.admin? ? admin_root_path : root_path
+          %>
           <i><%= link_to 'Log Out', destroy_user_session_path, method: 'delete' %></i>
         </p>
       </h3>

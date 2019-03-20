@@ -54,6 +54,6 @@ class Admin::TestsController < Admin::BaseController
   end
 
   def test_author
-    @test.author_id = current_user.id if current_user.is_a?(Admin)
+    @test.author_id = current_user.id if current_user.admin?
   end
 end

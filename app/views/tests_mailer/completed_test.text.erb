@@ -1,4 +1,4 @@
                     * Fine! *
                    ----------
   Great! You've completed the "<%= @test.title %>" test.
-  Accomplish the rest: <%= @user.is_a?(Admin) ? admin_tests_url : tests_url %> .
+  Accomplish the rest: <%= @user.admin? ? admin_tests_url : tests_url %> .

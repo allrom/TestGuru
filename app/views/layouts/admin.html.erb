@@ -17,8 +17,9 @@
           <span class = "greet admin title">Administrator</span>
           Welcome, <%= current_user.identity_name %>
                    <%= current_user.identity_sname %>! On&nbsp;
-          <%= link_to '* Test Guru *', admin_root_path %>
-          <i><%= link_to 'Log Out', destroy_user_session_path, method: 'delete' %></i>
+          <%= link_to '* Test Guru *', admin_root_path %>&nbsp;
+          <i><%= link_to 'Edit Profile', edit_user_registration_path %>&nbsp;
+          <%= link_to 'Log Out', destroy_user_session_path, method: 'delete' %></i>
         </p>
       </h3>
     <% end %>

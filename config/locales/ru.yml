@@ -1,0 +1,12 @@
+## * ru *YAML Template.
+#
+ru:
+  tests:
+    index:
+      header: "* Все Тесты *"
+
+  admin:
+    tests:
+      index:
+        header: "* Все Тесты # Admin *"
+        Id: "п/п"

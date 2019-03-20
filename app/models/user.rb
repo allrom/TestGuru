@@ -22,4 +22,8 @@ class User < ApplicationRecord
   def test_passage(test)
     test_passages.order(updated_at: :desc).find_by(test_id: test.id)
   end
+
+  def admin?
+    self.type == "Admin"
+  end
 end

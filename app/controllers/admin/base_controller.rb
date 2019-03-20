@@ -7,6 +7,6 @@ class Admin::BaseController < ApplicationController
   private
 
   def check_role!
-    redirect_to root_path, alert: "Not Authorized !" unless current_user.is_a?(Admin)
+    redirect_to root_path, alert: "Not Authorized !" unless current_user.admin?
   end
 end

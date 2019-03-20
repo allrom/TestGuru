@@ -14,13 +14,4 @@ module ApplicationHelper
       content_tag :div, message, class: "flash #{type}" if flash[type]
     end.join.html_safe
   end
-
-  def signup_hello
-    if current_user && current_user.sign_in_count == 1
-      unless session[:welcome]
-        flash.now[:hello] = "Hello, #{current_user.identity_name} !"
-        session[:welcome] = true
-      end
-    end
-  end
 end

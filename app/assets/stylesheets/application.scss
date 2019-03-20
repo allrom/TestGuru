@@ -21,3 +21,16 @@ label.required:after {
   content: " *";
   color: red;
 }
+
+.translation_missing {
+	font-size: 13px;
+	color: deeppink;
+	font-family: Times;
+
+	&:before {
+		content: "translation view missing :: ";
+		font-size: 13px;
+		color: deeppink;
+		font-family: Times;
+	}
+}
