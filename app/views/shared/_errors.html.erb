@@ -1,7 +1,7 @@
 <% if resource.errors.present? %>
     <div>
         <h3 style="color:red;">
-          <%= pluralize(resource.errors.count, 'error') %> encountered:
+					<%= t('.header', count: resource.errors.count) %>
         </h3>
 
         <ul>

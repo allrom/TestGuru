@@ -4,8 +4,10 @@
 
 <% if @test_passage.current_question %>
 <p><i>
-  <% total = @test_passage.test.questions.count %>
-  <%= "Question No #{@test_passage.current_question_number} of #{total} total" %>
+  <%=
+		t('.question_num', q_num: @test_passage.current_question_number,
+											 total: @test_passage.test.questions.count)
+	%>
 </i></p>
 
 <p><%= @test_passage.current_question.body %></p>
@@ -26,4 +28,4 @@
 </p><br>
 <% end %>
 
-<p><%= link_to 'Home', @test_passage.user.admin? ? admin_root_path : root_path %></p>
+<p><%= link_to t('.home_link'), @test_passage.user.admin? ? admin_root_path : root_path %></p>

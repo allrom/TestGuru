@@ -13,20 +13,18 @@
     <% if user_signed_in? %>
       <h3>
         <p class = "greet user">
-          Welcome, <%= current_user.identity_name %>
-                   <%= current_user.identity_sname %>! On&nbsp;
+          <%= t('.greet') %> <%=current_user.identity_name %>
+          <%= current_user.identity_sname %>!&nbsp;
           <%=
             link_to '* Test Guru *', \
             current_user.admin? ? admin_root_path : root_path
           %>
-          <i><%= link_to 'Log Out', destroy_user_session_path, method: 'delete' %></i>
+          <i><%= link_to t('.logout_link'), destroy_user_session_path, method: 'delete' %></i>
         </p>
       </h3>
     <% end %>
 
     <%= flash_message %>
-
-    <%#= first_hello %>
 
     <%= yield %>
     <%= render 'layouts/footer' %>

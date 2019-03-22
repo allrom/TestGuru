@@ -1,40 +1,181 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 en:
+  helpers:
+    submit:
+      test:
+        create: "Create a Test"
+        update: "Update the Test"
+      question:
+        create: "Create new Question"
+        update: "Update Question"
+      answer:
+        create: "Create new Answer"
+        update: "Update Answer"
+    label:
+      test:
+        title: "Title"
+        level: "Level"
+        category_id: "Category(type)"
+      question:
+        body: "Show"
+      answer:
+        body: "Show"
+        correct: "Correct Answer"
+    select:
+# Default selector text
+      prompt: "Select..."
+
   tests:
     index:
       header: "* All of Tests *"
+      id: "No."
+      title: "Test's Title"
+      level: "Test's Level"
+      questions_num: "Questions Total"
+      actions_avail: "Action"
+      greet: "HellO!"
+    test:
+      start: "Start>"
 
+  layouts:
+    admin:
+      edit_link: "Edit Profile"
+      logout_link: "Log Out"
+      greet: "Welcome, "
+    application:
+      greet: "Welcome, "
+      logout_link: "Log Out"
+
+  shared:
+    errors:
+      header:
+        one: "%{count} error encountered:"
+        other: "%{count} errors encountered:"
+    answs_table:
+      header:
+        one: "%{count} Answer total"
+        other: "%{count} Answers total"
+      id: "No."
+      body: "Answer's Content"
+      actions_avail: "Actions"
+    ques_table:
+      header:
+        one: "%{count} Question total"
+        other: "%{count} Questions total"
+      id: "No."
+      body: "Question's Content"
+      actions_avail: "Actions"
+
+  test_passages:
+    result:
+      header_html: "The * <i>%{title}</i> * Test Completed !"
+      passed: " - Passed"
+      failed: " - Failed"
+      home_link: "Home"
+    show:
+      home_link: "Home"
+      question_num: "Question No %{q_num} of %{total} total"
+
+  tests_mailer:
+    completed_test:
+      subject: "* You've completed the TestGuru Test *"
+## Admin's resources
   admin:
     tests:
+      create:
+        success: "New Test created..."
+      update:
+        success: "Test updated..."
+      destroy:
+        success: "Test deleted..."
+      show:
+        new_link: "New Question"
+        home_link: "Home"
+      edit:
+        show_link: "Show Test"
+        return_link: "Back"
       index:
         header: "* All of Tests # Admin *"
+        id: "No."
+        title: "Test's Title"
+        level: "Test's Level"
+        questions_num: "Questions Total"
+        actions_avail: "Actions"
+        greet: "HellO!"
+        new_test_link: "A new Test"
+      test:
+        show: "Show"
+        edit:	"Edit"
+        delete: "Delete"
+        are_you_sure: "Are You Sure ?"
+        start: "Start>"
+      new:
+        return_link: "Back"
+      form:
+        category: "Select Category"
+        header_if_html: "Create New Test"
+        header_else_html: "Edit <i>%{title}</i> Test"
 
+    questions:
+      create:
+        success: "New Question created..."
+      update:
+        success: "Question updated..."
+      destroy:
+        success: "Question deleted..."
+      edit:
+        show_link: "Show Question"
+        return_link: "Back"
+      new:
+        return_link: "Back"
+      show:
+        header: "Requested Question:"
+        new_link: "New Answer"
+        edit_link: "Edit Question"
+        return_link: "Back"
+        home_link: "Home"
+      question:
+        show: "Show"
+        edit:	"Edit"
+        delete: "Delete"
+        are_you_sure: "Are You Sure ?"
+      form:
+        header_if_html: "Create New Question for * <i>%{title}</i> *"
+        header_else_html: "Edit Question for * <i>%{title}</i> *"
+
+    answers:
+      create:
+        success: "New Answer created..."
+      update:
+        success: "Answer updated..."
+      destroy:
+        success: "Answer deleted..."
+      edit:
+        show_link: "Show Answer"
+        return_link: "Back"
+      new:
+        return_link: "Back"
+      show:
+        header: "Requested Answer is:"
+        header_bnd: "Binded Question is:"
+        correct: "Correct?"
+        edit_link: "Edit Answer"
+        return_link: "Back"
+        home_link: "Home"
+      answer:
+        show: "Show"
+        edit:	"Edit"
+        delete: "Delete"
+        are_you_sure: "Are You Sure ?"
+      form:
+        header_if_html: "Create New Answer for * <i>%{body}</i> *"
+        header_else_html: "Edit Answer for * <i>%{body}</i> *"
+##
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              malformed: "format is invAlid"

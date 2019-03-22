@@ -1,9 +1,9 @@
 module Admin::TestsHelper
   def test_header(test)
     if test.new_record?
-      "Create New Test"
+			t('.header_if_html')
     else
-      "Edit * #{test.title} * Test"
+			t('.header_else_html', title: test.title)
     end
   end
 end

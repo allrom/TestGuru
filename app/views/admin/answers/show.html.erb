@@ -1,20 +1,20 @@
 <p style="font-size:large">
-  <strong>Requested Answer is:</strong>&nbsp;
+  <strong><%= t('.header') %></strong>&nbsp;
   <%= @answer.body %>
 </p>
 
 <p style="font-size:medium">
-  <strong>Binded Question is:</strong>&nbsp;
+  <strong><%= t('.header_bnd') %></strong>&nbsp;
   <%= @answer.question.body %>
 </p>
 
 <p>
-  <b>Correct?</b>
+  <b><%= t('.correct') %></b>
   <%= @answer.correct %>
 </p><br>
 
-<p><%= link_to 'Edit Answer', edit_admin_answer_path(@answer) %></p>
+<p><%= link_to t('.edit_link'), edit_admin_answer_path(@answer) %></p>
 
-<p><%= link_to 'Back', admin_question_path(@answer.question) %></p>
+<p><%= link_to t('.return_link'), admin_question_path(@answer.question) %></p>
 
-<p><%= link_to 'Home', admin_tests_path %></p>
+<p><%= link_to t('.home_link'), admin_tests_path %></p>

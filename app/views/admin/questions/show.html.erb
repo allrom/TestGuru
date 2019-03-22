@@ -1,14 +1,14 @@
 <p style="font-size:medium">
-  <strong>Requested Question is:</strong>&nbsp;
+  <strong><%= t('.header') %></strong>&nbsp;
   <%= @question.body %>
 </p>
 
 <%= render 'shared/answs_table' %>
 
-<p><%= link_to 'New Answer', new_admin_question_answer_path(@question) %></p><br>
+<p><%= link_to t('.new_link'), new_admin_question_answer_path(@question) %></p><br>
 
-<p><%= link_to 'Edit Question', edit_admin_question_path(@question) %></p>
+<p><%= link_to t('.edit_link'), edit_admin_question_path(@question) %></p>
 
-<p><%= link_to 'Back', admin_test_path(:id => @question.test_id) %></p>
+<p><%= link_to t('.return_link'), admin_test_path(:id => @question.test_id) %></p>
 
-<p><%= link_to 'Home', admin_tests_path %></p>
+<p><%= link_to t('.home_link'), admin_tests_path %></p>

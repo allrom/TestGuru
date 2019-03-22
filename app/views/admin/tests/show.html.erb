@@ -10,6 +10,6 @@
 
 <%= render 'shared/ques_table' %>
 
-<p><%= link_to 'New Question', new_admin_test_question_path(@test, @question) %></p>
+<p><%= link_to t('.new_link'), new_admin_test_question_path(@test, @question) %></p>
 
-<p><%= link_to 'Home', admin_tests_path %></p>
+<p><%= link_to t('.home_link'), admin_tests_path %></p>
