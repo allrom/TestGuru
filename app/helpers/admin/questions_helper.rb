@@ -1,9 +1,9 @@
 module Admin::QuestionsHelper
   def question_header(_test, question)
     if question.new_record?
-      "Create New * #{_test.title} * Question"
+			t('.header_if_html', title: _test.title)
     else
-      "Edit * #{question.test.title} * Question"
+			t('.header_else_html', title: question.test.title)
     end
   end
 end

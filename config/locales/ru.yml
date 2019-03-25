@@ -1,12 +1,195 @@
 ## * ru *YAML Template.
 #
 ru:
+  helpers:
+    submit:
+      test:
+        create: "Новый Тест"
+        update: "Изменить этот Тест"
+      question:
+        create: "Новый Вопрос"
+        update: "Изменить этот Вопрос"
+      answer:
+        create: "Новый Ответ"
+        update: "Изменить этот Ответ"
+    label:
+      test:
+        title: "Название"
+        level: "Сложность"
+        category_id: "Категория(тип)"
+      question:
+        body: "Содержание"
+      answer:
+        body: "Содержание"
+        correct: "Правильный Ответ"
+    select:
+# Default selector text
+      prompt: "Выберите..."
+
   tests:
     index:
       header: "* Все Тесты *"
+      id: "№"
+      title: "Название Теста"
+      level: "Уровень сложности"
+      questions_num: "Всего вопросов"
+      actions_avail: "Работа с Тестом"
+      greet: "Привет!"
+    test:
+      start: "Приступить>"
 
+  layouts:
+    admin:
+      edit_link: "Изменить профиль"
+      logout_link: "Выход"
+      greet: "Приветствуем, "
+    application:
+      greet: "Приветствуем, "
+      logout_link: "Выход"
+
+  shared:
+    errors:
+      header:
+        one: "Обнаружена %{count} ошибка:"
+        few: "Обнаружено %{count} ошибки:"
+        many: "Обнаружено %{count} ошибок:"
+        other: "Обнаружено %{count} ошибки:"
+    answs_table:
+      header:
+        one: "%{count} Ответ"
+        few: "Всего: %{count} Ответа"
+        many: "Всего %{count} Ответов"
+        other: "Всего: %{count} Ответа"
+      id: "№"
+      body: "Содержание Ответа"
+      actions_avail: "Работа с Ответом"
+    ques_table:
+      header:
+        one: "%{count} Вопрос"
+        few: "Всего: %{count} Вопроса"
+        many: "Всего %{count} Вопросов"
+        other: "Всего: %{count} Вопроса"
+      id: "№"
+      body: "Содержание Вопроса"
+      actions_avail: "Работа с Вопросом"
+
+  test_passages:
+    result:
+      header_html: "Пройден Тест * <i>%{title}</i> * !"
+      passed: " - Успех"
+      failed: " - Неудачно"
+      home_link: "Список Тестов"
+    show:
+      home_link: "Список Тестов"
+      question_num: "Вопрос № %{q_num}, всего %{total}"
+
+  tests_mailer:
+    completed_test:
+      subject: "* Пройден Тест из Guru Test *"
+## Admin Логин
   admin:
     tests:
+      create:
+        success: "Тест успешно создан..."
+      update:
+        success: "Тест изменен..."
+      destroy:
+        success: "Тест удален..."
+      show:
+        new_link: "Новый Вопрос"
+        home_link: "Список Тестов"
+      edit:
+        show_link: "Содержание Теста"
+        return_link: "Назад"
       index:
         header: "* Все Тесты # Admin *"
-        Id: "п/п"
+        id: "№"
+        title: "Название Теста"
+        level: "Уровень сложности"
+        questions_num: "Всего вопросов"
+        actions_avail: "Работа с Тестом"
+        greet: "Привет!"
+        new_test_link: "Построить новый Тест"
+      test:
+        show: "Содержание"
+        edit:	"Изменить"
+        delete: "Удалить"
+        are_you_sure: "Уверены ?"
+        start: "Приступить>"
+      new:
+        return_link: "Назад"
+      form:
+        category: "Выберите Категорию"
+        header_if_html: "Построить новый Тест"
+        header_else_html: "Изменить Тест <i>%{title}</i>"
+
+    questions:
+      create:
+        success: "Вопрос успешно создан..."
+      update:
+        success: "Вопрос изменен..."
+      destroy:
+        success: "Вопрос удален..."
+      edit:
+        show_link: "Содержание Вопроса"
+        return_link: "Назад"
+      new:
+        return_link: "Назад"
+      show:
+        header: "Запрошенный Вопрос:"
+        new_link: "Создать Ответ для Вопроса"
+        edit_link: "Изменить этот вопрос"
+        return_link: "Назад"
+        home_link: "Список Тестов"
+      question:
+        show: "Содержание"
+        edit:	"Изменить"
+        delete: "Удалить"
+        are_you_sure: "Уверены ?"
+      form:
+        header_if_html: "Новый Вопрос для Теста * <i>%{title}</i> *"
+        header_else_html: "Изменить Вопрос для Теста * <i>%{title}</i> *"
+
+    answers:
+      create:
+        success: "Ответ успешно создан..."
+      update:
+        success: "Ответ изменен..."
+      destroy:
+        success: "Ответ удален..."
+      edit:
+        show_link: "Содержание Ответа"
+        return_link: "Назад"
+      new:
+        return_link: "Назад"
+      show:
+        header: "Запрошенный Ответ:"
+        header_bnd: "Ответ привязан к Вопросу:"
+        correct: "Верно?"
+        edit_link: "Изменить этот Ответ"
+        return_link: "Назад"
+        home_link: "Список Тестов"
+      answer:
+        show: "Содержание"
+        edit:	"Изменить"
+        delete: "Удалить"
+        are_you_sure: "Уверены ?"
+      form:
+        header_if_html: "Новый Ответ для Вопроса * <i>%{body}</i> *"
+        header_else_html: "Изменить Ответ для Вопроса * <i>%{body}</i> *"
+##
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              malformed: "неверный Формат адреса"
+    attributes:
+      user:
+        email: "Эл.почта"
+        first_name: "Имя"
+        last_name: "Фамилия"
+        password: "Пароль"
+        password_confirmation: "Подтвердить пароль"
+        remember_me: "Запомнить"

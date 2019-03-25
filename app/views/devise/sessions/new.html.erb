@@ -1,4 +1,4 @@
-<h3>* Log in Test Guru Project *</h3>
+<h3><%= t('.header_app') %></h3>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
@@ -19,7 +19,7 @@
   <% end %>
 
   <div class="actions">
-    <%= f.submit "Enter" %>
+    <%= f.submit t('.submit') %>
   </div>
 <% end %>
 

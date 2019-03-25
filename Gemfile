@@ -35,6 +35,9 @@ gem 'validates_email_format_of'
 # AUTH mega-module
 gem 'devise', '~> 4.0'
 
+# Localization
+gem 'rails-i18n', '~> 5.0'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

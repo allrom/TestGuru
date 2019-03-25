@@ -1,0 +1,7 @@
+<h3 align = "center">* Есть! *</h3>
+
+<p style="font-size: small">
+  Замечательно! <i><%= @sent_at %></i> Вы завершили тест <i><%= @test.title %></i>.
+  Двигайтесь дальше ! Тесты :
+  <%= link_to 'ещё', @user.admin? ? admin_tests_url : tests_url  %>.
+</p>

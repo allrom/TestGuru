@@ -6,6 +6,6 @@ module User::Validations
     validates :identity_name, :email, presence: true
 
     validates :email, uniqueness: true
-    validates :email, :email_format => { :message => "format is invalid" }
+    validates :email, :email_format => { message: :malformed }
   end
 end

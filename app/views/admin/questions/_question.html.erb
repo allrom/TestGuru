@@ -1,12 +1,12 @@
 <tr>
   <td align = "center"><%= question.id %></td>
   <td><%= question.body %></td>
-  <td><%= link_to 'Show', admin_question_path(question) %></td>
-  <td><%= link_to 'Edit', edit_admin_question_path(question) %></td>
+  <td><%= link_to link_to t('.show'), admin_question_path(question) %></td>
+  <td><%= link_to t('.edit'), edit_admin_question_path(question) %></td>
   <td>
-      <%= link_to 'Delete',
+      <%= link_to t('.delete'),
                   admin_question_path(question),
                   method: :delete,
-                  data: { confirm: 'Are You Sure?' } %>
+                  data: { confirm: t('.are_you_sure') } %>
   </td>
 </tr>

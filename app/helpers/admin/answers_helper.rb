@@ -1,9 +1,9 @@
 module Admin::AnswersHelper
   def answer_header(_question, answer)
     if answer.new_record?
-      "Create New * #{_question.body} * Answer"
+			t('.header_if_html', body: _question.body)
     else
-      "Edit * #{answer.question.body} * Answer"
+			t('.header_else_html', body: answer.question.body)
     end
   end
 end

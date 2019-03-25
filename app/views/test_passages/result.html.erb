@@ -1,5 +1,5 @@
 <p style="font-size:medium">
-  <strong>The * <%= @test_passage.test.title %> * Test Completed</strong>&nbsp;
+  <strong><%= t('.header_html', title: @test_passage.test.title) %></strong>&nbsp;
 </p>
 
 <p>
@@ -7,13 +7,13 @@
     <span class = "passed">
       <%= @test_passage.result_percentage %> %
     </span>
-    <strong> - Passed</strong>
+    <strong><%=t('.passed') %></strong>
   <% else %>
     <span class = "failed">
        <%= @test_passage.result_percentage %> %
     </span>
-    <strong> - Failed</strong>
+    <strong><%=t('.failed') %></strong>
   <% end %>
 </p>
 
-<p><%= link_to 'Home', @test_passage.user.admin? ? admin_root_path : root_path %></p>
+<p><%= link_to t('.home_link'), @test_passage.user.admin? ? admin_root_path : root_path %></p>

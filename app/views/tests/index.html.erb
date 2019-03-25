@@ -1,12 +1,12 @@
 <h3><%= t('.header') %></h3>
 
-<table border = "1" width = "60%" cellpadding = "3">
+<table border = "1" width = "65%" cellpadding = "3">
     <tr>
-        <th>Id</th>
-        <th>Test Title</th>
-        <th>Test Level</th>
-        <th>Questions Total</th>
-        <th>Action</th>
+        <th><%= t('.id') %></th>
+        <th><%= t('.title') %></th>
+        <th><%= t('.level') %></th>
+        <th><%= t('.questions_num') %></th>
+        <th><%= t('.actions_avail') %></th>
     </tr>
 
     <%= render @tests %>

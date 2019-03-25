@@ -1,5 +1,5 @@
 <%= render 'form', model: [:admin, @question] %>
 
-<p><%= link_to 'Show Question', admin_question_path %></p>
+<p><%= link_to t('.show_link'), admin_question_path %></p>
 
-<p><%= link_to 'Back', admin_test_path(:id => @question.test_id) %></p>
+<p><%= link_to t('.return_link'), admin_test_path(:id => @question.test_id) %></p>
