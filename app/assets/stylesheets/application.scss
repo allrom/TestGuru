@@ -13,8 +13,56 @@
  *= require_tree .
  *= require_self
  */
+
+@import "bootstrap";
+
+body {
+  background-color: #fff;
+  color: #333;
+  margin: 20px;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 15px;
+  line-height: 17px;
+}
+
+p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 15px;
+  line-height: 17px;
+}
+
+div {
+  &.field, &.actions {
+    margin-bottom: 15px;
+  }
+}
+/* End from scaffold css */
+
+.table th {
+	border: 1px solid blue;
+  padding-bottom: 15px;
+	text-align: center;
+}
+
+.table td {
+	border: 1px solid blue;
+  padding: 5 10px 12px;
+	vertical-align: center;
+}
+
+.table-condensed > thead > tr> th,
+.table-condensed > tbody > tr> th,
+.table-condensed > tfoot > tr> th,
+.table-condensed > thead > tr> td,
+.table-condensed > tbody > tr> td,
+.table-condensed > tfoot > tr> td {
+	padding: 2px;
+	vertical-align: middle;
+	width: auto;
+}
+
 input[type="number"] {
-  width: 35px;
+  width: 55px;
 }
 
 label.required:after {
@@ -23,29 +71,16 @@ label.required:after {
 }
 
 .translation_missing {
-	font-size: 13px;
+	font-size: 15px;
 	color: deeppink;
 	font-family: Times;
 
 	&:before {
 		content: "translation view missing :: ";
-		font-size: 13px;
+		font-size: 15px;
 		color: deeppink;
 		font-family: Times;
 	}
-}
-
-.button {
-	color: white;
-	border: 2px solid #008cba;
-	text-align: center;
-	display: inline-block;
-	transition-duration: 0.5s;
-}
-
-.button:hover {
-	background-color: #008cba;
-	color: white;
 }
 
 .form-select {

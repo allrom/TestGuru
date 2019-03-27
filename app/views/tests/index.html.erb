@@ -1,13 +1,15 @@
-<h3><%= t('.header') %></h3>
+<div class="container">
 
-<table border = "1" width = "65%" cellpadding = "3">
+	<h5><%= t('.header') %></h5>
+
+	<table class="table table-condensed table-striped">
     <tr>
-        <th><%= t('.id') %></th>
-        <th><%= t('.title') %></th>
-        <th><%= t('.level') %></th>
-        <th><%= t('.questions_num') %></th>
-        <th><%= t('.actions_avail') %></th>
+      <th><%= t('.id') %></th>
+      <th><%= t('.title') %></th>
+      <th><%= t('.level') %></th>
+      <th><%= t('.questions_num') %></th>
+      <th><%= t('.actions_avail') %></th>
     </tr>
-
     <%= render @tests %>
 </table>
+</div>

@@ -1,15 +1,17 @@
-<h3><%= t('.header') %></h3>
+<div class="container">
 
-<table border = "1" width = "65%" cellpadding = "3">
+	<h5><%= t('.header') %></h5>
+
+	<table class="table table-condensed table-striped">
     <tr>
-        <th><%= t('.id') %></th>
-        <th><%= t('.title') %></th>
-        <th><%= t('.level') %></th>
-        <th><%= t('.questions_num') %></th>
-        <th colspan = "4"><%= t('.actions_avail') %></th>
+      <th class = "col-md-3"><%= t('.id') %></th>
+      <th class = "col-md-3"><%= t('.title') %></th>
+      <th class = "col-md-3"><%= t('.level') %></th>
+      <th class = "col-md-3"><%= t('.questions_num') %></th>
+      <th colspan = "4", class = "col-md-4" ><%= t('.actions_avail') %></th>
     </tr>
-
     <%= render @tests %>
-</table>
+	</table>
 
-<p><%= link_to t('.new_test_link'), new_admin_test_path(@test) %></p>
+	<p><%= link_to t('.new_test_link'), new_admin_test_path(@test) %></p>
+</div>

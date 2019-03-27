@@ -36,18 +36,20 @@ en:
       actions_avail: "Action"
       greet: "HellO!"
     test:
-      start: "Start>"
+      start: "Start"
 
   layouts:
-    admin:
+
+  shared:
+    nav_admin:
       edit_link: "Edit Profile"
       logout_link: "Log Out"
       greet: "Welcome, "
-    application:
+    nav:
       greet: "Welcome, "
-      logout_link: "Log Out"
-
-  shared:
+      logout_link: "LogOut"
+      login_link: "LogIn"
+      signup_link: "New Guru"
     errors:
       header:
         one: "%{count} error encountered:"
@@ -109,7 +111,7 @@ en:
         edit:	"Edit"
         delete: "Delete"
         are_you_sure: "Are You Sure ?"
-        start: "Start>"
+        start: "Start"
       new:
         return_link: "Back"
       form:

@@ -36,18 +36,20 @@ ru:
       actions_avail: "Работа с Тестом"
       greet: "Привет!"
     test:
-      start: "Приступить>"
+      start: "Приступить"
 
   layouts:
-    admin:
+
+  shared:
+    nav:
+      greet: "Приветствуем, "
+      logout_link: "Выход"
+      login_link: "Вход"
+      signup_link: "Новый Гуру"
+    nav_admin:
       edit_link: "Изменить профиль"
       logout_link: "Выход"
       greet: "Приветствуем, "
-    application:
-      greet: "Приветствуем, "
-      logout_link: "Выход"
-
-  shared:
     errors:
       header:
         one: "Обнаружена %{count} ошибка:"
@@ -115,7 +117,7 @@ ru:
         edit:	"Изменить"
         delete: "Удалить"
         are_you_sure: "Уверены ?"
-        start: "Приступить>"
+        start: "Приступить"
       new:
         return_link: "Назад"
       form:

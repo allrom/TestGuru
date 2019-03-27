@@ -1,12 +1,15 @@
 <tr>
   <td align = "center"><%= answer.id %></td>
   <td><%= answer.body %></td>
-  <td><%= link_to t('.show'), admin_answer_path(answer) %></td>
-  <td><%= link_to t('.edit'), edit_admin_answer_path(answer) %></td>
+  <td><%= link_to t('.show'), admin_answer_path(answer), \
+															class: 'badge badge-info' %></td>
+  <td><%= link_to t('.edit'), edit_admin_answer_path(answer), \
+															class: 'badge badge-success' %></td>
   <td>
-      <%= link_to t('.delete'),
-                  admin_answer_path(answer),
-                  method: :delete,
-                  data: { confirm: t('.are_you_sure') } %>
+      <%= link_to t('.delete'), \
+                  admin_answer_path(answer), \
+                  method: :delete, \
+                  data: { confirm: t('.are_you_sure') }, \
+									class: 'badge badge-danger' %>
   </td>
 </tr>

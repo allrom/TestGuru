@@ -1,10 +1,9 @@
 <%= form_with(model: model, local: true) do |form| %>
-  <h3><span style="color:blue">
-        <%= test_header(@test) %>
-      </span>
-  </h3>
+  <h5 style="color:blue; padding: 0 0 0 50px">
+    <%= test_header(@test) %>
+  </h5>
 
-<%= render 'shared/errors', resource: @test %>
+	<%= render 'shared/errors', resource: @test %>
   <p>
     <%= form.label :title %>
     <%= form.text_field :title %>
@@ -15,7 +14,7 @@
     <%= form.collection_select :category_id, Category.all,
 															 :id, :title,
 															 { prompt: t('.category') },
-															 { class: "form-select" }%>
+															 { class: "form-select" } %>
   </p><br>
 
   <p>

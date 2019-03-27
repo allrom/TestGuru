@@ -28,6 +28,10 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 ## gem 'bcrypt', '~> 3.1.7'
+# Bootstrap JavaScript depends on jQuery. For Rails 5.1+ this gem is needed
+gem 'jquery-rails'
+# Bootstrap framework
+gem 'bootstrap', '~> 4.3.1'
 
 # RFC5322 e-mail validation
 gem 'validates_email_format_of'
