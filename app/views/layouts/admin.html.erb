@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
     <title>* TestGuru #Admin *</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -10,25 +13,13 @@
   </head>
 
   <body>
-    <% if user_signed_in? %>
-      <h3>
+		<%= render 'shared/nav_admin' %>
 
-        <p class = "greet admin">
-          <span class = "greet admin title">Administrator</span>
-           <%= t('.greet') %> <%= current_user.identity_name %>
-           <%= current_user.identity_sname %>!&nbsp;
-          <%= link_to '* Test Guru *', admin_root_path %>&nbsp;
-          <i><%= link_to t('.edit_link'), edit_user_registration_path %>&nbsp;
-          <%= link_to t('.logout_link'), destroy_user_session_path, method: 'delete' %></i>
-        </p>
-      </h3>
-    <% end %>
-
-    <%= flash_message %>
-
-    <%#= first_hello %>
-
-    <%= yield %>
-    <%= render 'layouts/footer' %>
+    <div class="container">
+			<%= render 'layouts/messages' %>
+			<%#= flash_message %>
+			<%= yield %>
+			<%= render 'layouts/footer' %>
+		</div>
   </body>
 </html>

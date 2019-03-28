@@ -3,13 +3,14 @@
   <td align = "left"><%= test.title %></td>
   <td><%=  test.level %></td>
   <td><%=  test.questions.count %></td>
-  <td><%= link_to t('.show'), admin_test_path(test) %></td>
-  <td><%= link_to t('.edit'), edit_admin_test_path(test) %></td>
+  <td><%= link_to t('.show'), admin_test_path(test), class: 'badge badge-info' %></td>
+  <td><%= link_to t('.edit'), edit_admin_test_path(test), class: 'badge badge-success' %></td>
   <td>
-      <%= link_to t('.delete'),
-                  admin_test_path(test),
-                  method: :delete,
-                  data: { confirm: t('.are_you_sure') } %>
+      <%= link_to t('.delete'), \
+                  admin_test_path(test), \
+                  method: :delete, \
+                  data: { confirm: t('.are_you_sure') }, \
+								  class: 'badge badge-danger' %>
   </td>
-  <td><%= button_to t('.start'), start_test_path(test) %></td>
+  <td><%= button_to t('.start'), start_test_path(test), class: 'btn btn-primary' %></td>
 </tr>

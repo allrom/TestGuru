@@ -36,25 +36,27 @@ ru:
       actions_avail: "Работа с Тестом"
       greet: "Привет!"
     test:
-      start: "Приступить>"
+      start: "Приступить"
 
   layouts:
-    admin:
+
+  shared:
+    nav:
+      greet: "Приветствуем, "
+      logout_link: "Выход"
+      login_link: "Вход"
+      signup_link: "Новый Гуру"
+    nav_admin:
       edit_link: "Изменить профиль"
       logout_link: "Выход"
       greet: "Приветствуем, "
-    application:
-      greet: "Приветствуем, "
-      logout_link: "Выход"
-
-  shared:
     errors:
       header:
         one: "Обнаружена %{count} ошибка:"
         few: "Обнаружено %{count} ошибки:"
         many: "Обнаружено %{count} ошибок:"
         other: "Обнаружено %{count} ошибки:"
-    answs_table:
+    answers_table:
       header:
         one: "%{count} Ответ"
         few: "Всего: %{count} Ответа"
@@ -63,7 +65,7 @@ ru:
       id: "№"
       body: "Содержание Ответа"
       actions_avail: "Работа с Ответом"
-    ques_table:
+    questions_table:
       header:
         one: "%{count} Вопрос"
         few: "Всего: %{count} Вопроса"
@@ -115,7 +117,7 @@ ru:
         edit:	"Изменить"
         delete: "Удалить"
         are_you_sure: "Уверены ?"
-        start: "Приступить>"
+        start: "Приступить"
       new:
         return_link: "Назад"
       form:

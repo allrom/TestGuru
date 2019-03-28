@@ -1,10 +1,9 @@
 <%= form_with(model: model, local: true) do |form| %>
-  <h3><span style="color:darkgreen">
-        <%= answer_header(@question, @answer) %>
-      </span>
-  </h3>
+  <h5 style="color:darkgreen; padding: 0 0 0 50px ">
+    <%= answer_header(@question, @answer) %>
+  </h5>
 
-<%= render 'shared/errors', resource: @answer %>
+	<%= render 'shared/errors', resource: @answer %>
 
   <p>
     <%= form.label :body %>

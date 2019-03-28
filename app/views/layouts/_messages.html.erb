@@ -1,0 +1,16 @@
+<!--Devise flash messages with bootstrap  styles-->
+		<% flash.each do |type, msg| %>
+
+			<% if type == 'notice' %>
+				<div class="alert alert-success alert-dismissible">
+					<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+			<% elsif type == 'alert' %>
+				<div class="alert alert-danger">
+			<% else %>
+				<div class='alert alert-<%= "#{type}" %>'>
+			<% end %>
+
+			<%= msg %>
+				</div>
+
+		<% end %>

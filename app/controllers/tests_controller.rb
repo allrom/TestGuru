@@ -14,7 +14,7 @@ class TestsController < ApplicationController
 
   def signup_hello
     if unset_signup_hello? && current_user.sign_in_count == 1
-      flash.now[:hello] = t('.greet') + ", #{current_user.identity_name} !"
+      flash.now[:warning] = t('.greet') + ", #{current_user.identity_name} !"
       session[:welcome] = true
     end
   end
