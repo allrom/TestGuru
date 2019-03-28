@@ -56,7 +56,7 @@ ru:
         few: "Обнаружено %{count} ошибки:"
         many: "Обнаружено %{count} ошибок:"
         other: "Обнаружено %{count} ошибки:"
-    answs_table:
+    answers_table:
       header:
         one: "%{count} Ответ"
         few: "Всего: %{count} Ответа"
@@ -65,7 +65,7 @@ ru:
       id: "№"
       body: "Содержание Ответа"
       actions_avail: "Работа с Ответом"
-    ques_table:
+    questions_table:
       header:
         one: "%{count} Вопрос"
         few: "Всего: %{count} Вопроса"

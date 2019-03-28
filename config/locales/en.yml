@@ -54,14 +54,14 @@ en:
       header:
         one: "%{count} error encountered:"
         other: "%{count} errors encountered:"
-    answs_table:
+    answers_table:
       header:
         one: "%{count} Answer total"
         other: "%{count} Answers total"
       id: "No."
       body: "Answer's Content"
       actions_avail: "Actions"
-    ques_table:
+    questions_table:
       header:
         one: "%{count} Question total"
         other: "%{count} Questions total"
