@@ -89,3 +89,11 @@ label.required:after {
 	border-radius: 3px;
 	padding: 3px 5px;
 }
+
+.gist-question {
+	text-align: left;
+	max-width: 12em;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}

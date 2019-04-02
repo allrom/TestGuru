@@ -42,6 +42,7 @@ en:
 
   shared:
     nav_admin:
+      show_gist_link: "Gists Table"
       edit_link: "Edit Profile"
       logout_link: "Log Out"
       greet: "Welcome, "
@@ -77,11 +78,20 @@ en:
       home_link: "Home"
     show:
       home_link: "Home"
+      gist_link: "Gist this Question"
       question_num: "Question No %{q_num} of %{total} total"
+    gist:
+      success: "The Gist have been created!
+                <i><a href='%{gist_url}' target='blank'> See Created Gist on GitHub</a></i>"
+      failure: "An error occured while creating Gist..."
 
   tests_mailer:
     completed_test:
       subject: "* You've completed the TestGuru Test *"
+
+  services:
+    gist_params:
+      description: "Marked question is from * %{title} * Test"
 ## Admin's resources
   admin:
     tests:
@@ -173,6 +183,15 @@ en:
       form:
         header_if_html: "Create New Answer for * <i>%{body}</i> *"
         header_else_html: "Edit Answer for * <i>%{body}</i> *"
+
+    gists:
+      index:
+        header: "* All of Gists *"
+        id: "No."
+        question: "Question's Title"
+        gist_url: "Gist's URL"
+        email: "User"
+        home_link: "Home"
 ##
   activerecord:
     errors:

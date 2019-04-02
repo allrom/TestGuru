@@ -1,0 +1,16 @@
+<div class="container">
+
+	<h5><%= t('.header') %></h5>
+
+	<table class="table table-condensed table-striped">
+    <tr>
+      <th><%= t('.id') %></th>
+      <th><%= t('.question') %></th>
+      <th><%= t('.gist_url') %></th>
+      <th><%= t('.email') %></th>
+    </tr>
+    <%= render @gists %>
+	</table>
+
+	<p><%= link_to t('.home_link'), admin_tests_path %></p>
+</div>
