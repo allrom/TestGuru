@@ -39,15 +39,15 @@ div {
 /* End from scaffold css */
 
 .table th {
-	border: 1px solid blue;
+  border: 1px solid blue;
   padding-bottom: 15px;
-	text-align: center;
+  text-align: center;
 }
 
 .table td {
-	border: 1px solid blue;
+  border: 1px solid blue;
   padding: 5 10px 12px;
-	vertical-align: center;
+  vertical-align: center;
 }
 
 .table-condensed > thead > tr> th,
@@ -56,9 +56,9 @@ div {
 .table-condensed > thead > tr> td,
 .table-condensed > tbody > tr> td,
 .table-condensed > tfoot > tr> td {
-	padding: 2px;
-	vertical-align: middle;
-	width: auto;
+  padding: 2px;
+  vertical-align: middle;
+  width: auto;
 }
 
 input[type="number"] {
@@ -84,16 +84,16 @@ label.required:after {
 }
 
 .form-select {
-	background-color: #33c1FF;
-	border: 2px solid #008cba;
-	border-radius: 3px;
-	padding: 3px 5px;
+  background-color: #33c1FF;
+  border: 2px solid #008cba;
+  border-radius: 3px;
+  padding: 3px 5px;
 }
 
 .gist-question {
-	text-align: left;
-	max-width: 12em;
-	overflow: hidden;
-	white-space: nowrap;
-	text-overflow: ellipsis;
+  text-align: left;
+  max-width: 12em;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }

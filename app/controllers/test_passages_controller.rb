@@ -7,16 +7,16 @@ class TestPassagesController < ApplicationController
   def result; end
 
   def gist
-    result = GistQuestionService.new(@test_passage.current_question).call
+    gist_init = GistQuestionService.new(@test_passage.current_question)
+    result = gist_init.call
 
-    flash_options = if result.is_a?(Sawyer::Resource)
+    flash_options = if gist_init.status?
       params = {
         question_id: @test_passage.current_question.id,
         url: result.html_url,
-        email: current_user.email
+        user_id: current_user.id
       }
-      gist_to_store = Gist.new(params)
-      gist_to_store.accept!
+      current_user.gists.create(params)
       { notice: t('.success', gist_url: result.html_url) }
     else
       { alert: t('.failure') }

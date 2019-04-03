@@ -1,8 +1,8 @@
 <tr align = "center">
   <td><%= gist.id %></td>
   <td class = gist-question >
-		<%= link_to "#{gist.question.body}", admin_question_path(gist.question) %>
-	</td>
-	<td><a href='<%= gist.url %>' target='blank'><%= gist.url %></a></td>
-  <td><%= gist.email %></td>
+    <%= link_to "#{gist.question.body}", admin_question_path(gist.question) %>
+  </td>
+  <td><a href='<%= gist.url %>' target='blank'><%= gist.url %></a></td>
+  <td><%= gist.user.email %></td>
 </tr>

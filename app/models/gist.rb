@@ -1,7 +1,4 @@
 class Gist < ApplicationRecord
-	belongs_to :question
-
-	def accept!
-		save! if self.present?
-	end
+  belongs_to :question
+  belongs_to :user
 end
