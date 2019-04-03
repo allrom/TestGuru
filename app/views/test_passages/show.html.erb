@@ -28,4 +28,5 @@
 </p><br>
 <% end %>
 
+<p><%= link_to t('.gist_link'), gist_test_passage_path(@test_passage), method: :post %></p>
 <p><%= link_to t('.home_link'), @test_passage.user.admin? ? admin_root_path : root_path %></p>

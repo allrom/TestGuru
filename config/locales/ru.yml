@@ -47,6 +47,7 @@ ru:
       login_link: "Вход"
       signup_link: "Новый Гуру"
     nav_admin:
+      show_gist_link: "Таблица Gists"
       edit_link: "Изменить профиль"
       logout_link: "Выход"
       greet: "Приветствуем, "
@@ -83,11 +84,19 @@ ru:
       home_link: "Список Тестов"
     show:
       home_link: "Список Тестов"
+      gist_link: "Создать Gist для вопроса"
       question_num: "Вопрос № %{q_num}, всего %{total}"
+    gist:
+      success: "Gist сохранен! <i><a href='%{gist_url}' target='blank'> Этот Gist на GitHub</a></i>"
+      failure: "При сохранении Gist'а произошла ошибка"
 
   tests_mailer:
     completed_test:
       subject: "* Пройден Тест из Guru Test *"
+
+  services:
+    gist_params:
+      description: "Для изучения отмечен вопрос из теста * %{title} *"
 ## Admin Логин
   admin:
     tests:
@@ -179,6 +188,15 @@ ru:
       form:
         header_if_html: "Новый Ответ для Вопроса * <i>%{body}</i> *"
         header_else_html: "Изменить Ответ для Вопроса * <i>%{body}</i> *"
+
+    gists:
+      index:
+        header: "* Gist в Таблице *"
+        id: "№"
+        question: "Вопрос"
+        gist_url: "Gist URL"
+        email: "Пользователь"
+        home_link: "Список Тестов"
 ##
   activerecord:
     errors:

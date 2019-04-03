@@ -7,12 +7,12 @@
     <span class = "passed">
       <%= @test_passage.result_percentage %> %
     </span>
-    <strong><%=t('.passed') %></strong>
+    <strong><%= t('.passed') %></strong>
   <% else %>
     <span class = "failed">
        <%= @test_passage.result_percentage %> %
     </span>
-    <strong><%=t('.failed') %></strong>
+    <strong><%= t('.failed') %></strong>
   <% end %>
 </p>
 

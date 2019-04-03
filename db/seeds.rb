@@ -8,6 +8,7 @@
 #
 # Clears all data, then seeds tables
 TestPassage.destroy_all
+Gist.delete_all
 Answer.delete_all
 Question.delete_all
 Test.destroy_all

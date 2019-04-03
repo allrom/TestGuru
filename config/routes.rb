@@ -3,8 +3,7 @@ Rails.application.routes.draw do
 
   devise_for :users, path: :gurus,
                      path_names: { sign_in: :login, sign_out: :logout },
-                     controllers: { sessions: 'sessions' },
-                     controllers: { registrations: 'registrations' }
+                     controllers: { sessions: 'sessions', registrations: 'registrations' }
 
   root to: 'tests#index'
 
@@ -18,6 +17,8 @@ Rails.application.routes.draw do
   namespace :admin do
     root to: 'tests#index'
 
+    resources :gists, shallow: true, only: :index
+
     resources :tests do
       resources :questions, shallow: true, except: :index do
         resources :answers, shallow: true, except: :index
@@ -28,6 +29,7 @@ Rails.application.routes.draw do
   resources :test_passages, only: %i[show update] do
     member do
       get :result
+      post :gist
     end
   end
 end

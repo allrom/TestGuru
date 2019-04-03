@@ -18,5 +18,8 @@ module TestGuru
 
     config.time_zone = 'Moscow'
     config.i18n.default_locale = :en
+
+    # to find Octokit GitHub API clent
+    # config.autoload_paths << "#{Rails.root}/lib/clients"
   end
 end

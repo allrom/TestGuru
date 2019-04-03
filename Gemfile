@@ -5,6 +5,9 @@ ruby '2.5.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2'
+
+# loads env variables from .env into ENV in devel& test
+gem 'dotenv-rails', groups: [:development, :test]
 # Use sqlite3 as the database for Active Record
 ## gem 'sqlite3'
 # Use postgres SQL as the database for Active Record
@@ -28,6 +31,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 ## gem 'bcrypt', '~> 3.1.7'
+#
 # Bootstrap JavaScript depends on jQuery. For Rails 5.1+ this gem is needed
 gem 'jquery-rails'
 # Bootstrap framework
@@ -39,8 +43,11 @@ gem 'validates_email_format_of'
 # AUTH mega-module
 gem 'devise', '~> 4.0'
 
-# Localization
+# Localization:
 gem 'rails-i18n', '~> 5.0'
+
+# GitHub API Octokit client
+gem 'octokit', '~> 4.0'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

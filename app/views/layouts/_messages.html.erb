@@ -10,7 +10,7 @@
 				<div class='alert alert-<%= "#{type}" %>'>
 			<% end %>
 
-			<%= msg %>
+			<%= msg.html_safe %>
 				</div>
 
 		<% end %>
