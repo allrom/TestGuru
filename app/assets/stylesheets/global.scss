@@ -1,0 +1,17 @@
+// styles related to Tests table sorting.
+ .pointer {
+   cursor: pointer;
+ }
+
+ .hide {
+  display: none;
+ }
+
+ //  styles related to Password & Confirm compare.
+ .match {
+   color: lawngreen;
+ }
+
+ .mismatch {
+   color: red;
+ }
