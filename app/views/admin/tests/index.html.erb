@@ -5,7 +5,11 @@
 	<table class="table table-condensed table-striped">
     <tr>
       <th class = "col-md-3"><%= t('.id') %></th>
-      <th class = "col-md-3"><%= t('.title') %></th>
+      <th class = "sort-by-title pointer col-md-3">
+        <%= t('.title') %>
+        <%= octicon 'arrow-up', class: 'text-success hide' %>
+        <%= octicon 'arrow-down', class: 'text-success hide' %>
+      </th>
       <th class = "col-md-3"><%= t('.level') %></th>
       <th class = "col-md-3"><%= t('.questions_num') %></th>
       <th colspan = "4", class = "col-md-4" ><%= t('.actions_avail') %></th>

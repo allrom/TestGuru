@@ -49,6 +49,9 @@ gem 'rails-i18n', '~> 5.0'
 # GitHub API Octokit client
 gem 'octokit', '~> 4.0'
 
+# Octicons rails helper (useful icons)
+gem 'octicons_helper'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

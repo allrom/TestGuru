@@ -23,12 +23,21 @@
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <%=
+      f.password_field :password,
+                        autocomplete: "new-password",
+                        class: 'created-user-password'
+    %>
   </div>
 
   <div class="field">
     <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%=
+      f.password_field :password_confirmation,
+                        autocomplete: "new-password",
+                        class: 'confirmed-user-password'
+    %>
+    <%= octicon 'shield', height: 24, class: 'hide' %>
   </div>
 
   <div class="actions">
