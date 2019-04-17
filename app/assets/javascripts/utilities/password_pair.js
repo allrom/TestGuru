@@ -33,8 +33,6 @@ function iconToggler (val1, val2) {
     controlIcon.classList.remove('hide', 'match');
     controlIcon.classList.add('mismatch');
   }
-  // else if (!val1 && !val2)
-  //  controlIcon.classList.add('hide');
   else {
     controlIcon.classList.remove('hide', 'mismatch');
     controlIcon.classList.add('match');
