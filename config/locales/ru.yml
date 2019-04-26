@@ -104,9 +104,12 @@ ru:
         success: "Тест успешно создан..."
       update:
         success: "Тест изменен..."
+      update_inline:
+        success: "Тест (заголовок) изменен..."
       destroy:
         success: "Тест удален..."
       show:
+        edit:	"Изменить Тест"
         new_link: "Новый Вопрос"
         home_link: "Список Тестов"
       edit:
@@ -133,6 +136,8 @@ ru:
         category: "Выберите Категорию"
         header_if_html: "Построить новый Тест"
         header_else_html: "Изменить Тест <i>%{title}</i>"
+      form_inline:
+        submit: "OK"
 
     questions:
       create:

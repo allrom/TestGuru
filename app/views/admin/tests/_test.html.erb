@@ -1,10 +1,20 @@
 <tr align = "center">
   <td><%= test.id %></td>
-  <td align = "left"><%= test.title %></td>
+  <td align = "left">
+    <%=
+      content_tag :span, test.title, class: 'test-title', data: { test_id: test.id }
+    %>
+    <%= render 'form_inline', test: test == @test ? @test : test %>
+  </td>
   <td><%=  test.level %></td>
   <td><%=  test.questions.count %></td>
   <td><%= link_to t('.show'), admin_test_path(test), class: 'badge badge-info' %></td>
-  <td><%= link_to t('.edit'), edit_admin_test_path(test), class: 'badge badge-success' %></td>
+  <td>
+      <%= link_to t('.edit'), \
+                  edit_admin_test_path(test), \
+                  data: { test_id: test.id }, \
+                  class: 'badge badge-success form-inline-link' %>
+  </td>
   <td>
       <%= link_to t('.delete'), \
                   admin_test_path(test), \

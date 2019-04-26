@@ -3,17 +3,30 @@
 </p>
 
 <% if @test_passage.current_question %>
+  <% n_o_questions = @test_passage.test.questions.count %>
+  <% crnt_question_n =  @test_passage.current_question_number %>
+
+  <progress id = "progressBar" value = "0" max = "100"></progress>
+
+    <%=
+      content_tag :div, '', class: 'test-progress',
+                        data: {
+                          questions_count: n_o_questions,
+                          question_num: crnt_question_n
+                          }
+    %>
+<br>
 <p><i>
   <%=
-		t('.question_num', q_num: @test_passage.current_question_number,
-											 total: @test_passage.test.questions.count)
+		t('.question_num', q_num: crnt_question_n,
+                       total: n_o_questions)
 	%>
 </i></p>
 
 <p><%= @test_passage.current_question.body %></p>
 
 <p>
-  <%= form_with url: test_passage_path(@test_passage), local: true, method: :put do |form| %>
+  <%= form_with url: test_passage_path(@test_passage), html: { id: "testPassage" }, local: true, method: :put do |form| %>
       <%= form.collection_check_boxes \
         :answer_ids,
         @test_passage.current_question.answers, :id, :body, include_hidden: false  do |b| %>
@@ -23,10 +36,11 @@
           </p>
       <% end %>
 
-    <p><%= form.submit "Next" %></p>
+    <p><%= form.submit "Next", class: 'next-question' %></p>
   <% end %>
 </p><br>
 <% end %>
 
 <p><%= link_to t('.gist_link'), gist_test_passage_path(@test_passage), method: :post %></p>
+
 <p><%= link_to t('.home_link'), @test_passage.user.admin? ? admin_root_path : root_path %></p>

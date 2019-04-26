@@ -1,10 +1,8 @@
 class Admin::TestsController < Admin::BaseController
-  before_action :find_test, only: %i[show edit update destroy start]
+  before_action :all_tests, only: %i[index update_inline]
+  before_action :find_test, only: %i[show edit update update_inline destroy start]
 
-  def index
-    ## logger.info(self.object_id)
-    @tests = Test.all
-  end
+  def index; end
 
   def show; end
 
@@ -33,6 +31,15 @@ class Admin::TestsController < Admin::BaseController
     end
   end
 
+  # regards to js data attrs
+  def update_inline
+    if @test.update(test_params)
+      redirect_to admin_tests_path, notice: t('.success')
+    else
+      render :index
+    end
+  end
+
   def start
     current_user.tests << @test
     redirect_to current_user.test_passage(@test)
@@ -51,6 +58,10 @@ class Admin::TestsController < Admin::BaseController
 
   def find_test
     @test = Test.find(params[:id])
+  end
+
+  def all_tests
+    @tests = Test.all
   end
 
   def test_author

@@ -8,7 +8,9 @@
   <%= @test.level %>
 </p>
 
-<%= render 'shared/questions_table' %>
+<%= render 'shared/questions_table' %><br>
+
+<p><%= link_to t('.edit'), edit_admin_test_path(@test) %></p>
 
 <p><%= link_to t('.new_link'), new_admin_test_question_path(@test, @question) %></p>
 
