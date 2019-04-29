@@ -99,9 +99,12 @@ en:
         success: "New Test created..."
       update:
         success: "Test updated..."
+      update_inline:
+        success: "Test title updated..."
       destroy:
         success: "Test deleted..."
       show:
+        edit:	"Edit this Test"
         new_link: "New Question"
         home_link: "Home"
       edit:
@@ -128,6 +131,8 @@ en:
         category: "Select Category"
         header_if_html: "Create New Test"
         header_else_html: "Edit <i>%{title}</i> Test"
+      form_inline:
+        submit: "OK"
 
     questions:
       create:
