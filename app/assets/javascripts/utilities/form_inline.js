@@ -26,12 +26,12 @@ function formInLineLinkHandler(event) {
 
 function formInLineHandler(testId) {
   var $link = $('.form-inline-link[data-test-id="' + testId + '"]');
-  var $testTitle = $('.test-title[data-test-id="' + testId + '"]');
+  var $testTitle = $('.test-title[data-test-id="' + testId + '"]').val();
   var $formInLine = $('.form-inline[data-test-id="' + testId + '"]');
 
   // toggles form_inline
-  $testTitle.toggle();
   $formInLine.toggle();
+  if (typeof $testTitle !== 'undefined' && $testTitle.length) $testTitle.toggle();
 
   if ($formInLine.is(':visible')) {
     $link.text('Cancel');

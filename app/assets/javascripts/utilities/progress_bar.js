@@ -1,7 +1,7 @@
 /*
  * This file draws the progress bar on test passage.
  */
-progressBar = 0;
+let progressBar = 0;
 document.addEventListener('turbolinks:load', function() {
 
   if (document.readyState !== 'loading') setProgress();
