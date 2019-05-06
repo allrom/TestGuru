@@ -16,4 +16,12 @@
   <% end %>
 </p>
 
+<p>
+  <%=
+    button_to t('.feedback'), contacts_path(@contact),
+                              class: 'btn btn-outline-info',
+                              form: {target: '_blank'}
+  %>
+</p>
+
 <p><%= link_to t('.home_link'), @test_passage.user.admin? ? admin_root_path : root_path %></p>

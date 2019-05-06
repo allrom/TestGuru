@@ -1,0 +1,27 @@
+<%=  form_with(model: model, remote: true) do |form| %>
+  <div class = "col-md-6">
+    <h5 style="color:blue; padding: 0 0 0 50px">
+      <%= t('.form_header') %>
+    </h5>
+
+    <%= form.label :name %>
+    <%= form.text_field :name, value: "#{current_user.identity_name}", readonly: true %>
+    <br>
+    <%= form.label :email %>
+    <%= form.email_field :email, value: "#{current_user.email}", readonly: true %>
+    <br>
+    <%= form.label :message %>
+    <%=
+        form.text_area :message, rows: 4, cols: 30, required: true,
+                                 class: "feedback-form-text-area",
+                                 placeholder: t('.typehere')
+    %>
+    <br>
+    <div class = "hide">
+      <%= form.label :nickname %><br>
+      <%= form.text_field :nickname, hint: t('.hint') %>
+    </div>
+    <br>
+    <p><%= form.submit t('.submit'), class: 'btn btn-primary' %></p>
+  </div>
+<% end %>

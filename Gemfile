@@ -52,6 +52,9 @@ gem 'octokit', '~> 4.0'
 # Octicons rails helper (useful icons)
 gem 'octicons_helper'
 
+# MailForm allows you to send n e-mil straight from a form (feedback)
+gem 'mail_form'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
