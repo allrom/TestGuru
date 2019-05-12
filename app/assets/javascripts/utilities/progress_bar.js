@@ -1,7 +1,7 @@
 /*
  * This file draws the progress bar on test passage.
  */
-let progressBar = 0;
+let progressbar = 0;
 document.addEventListener('turbolinks:load', function() {
 
   if (document.readyState !== 'loading') setProgress();
@@ -12,11 +12,11 @@ document.addEventListener('turbolinks:load', function() {
   }
 });
 
- if (progressBar) window.onebeforeunload = dropProgress();
+ if (progressbar) window.onebeforeunload = dropProgress();
 
 function setProgress() {
   var progress = document.querySelector('.test-progress');
-  progressBar = document.getElementById("progressBar");
+  progressbar = document.getElementById("progressBar");
 
   if (progress) {
     var total = progress.dataset.questionsCount;
@@ -25,9 +25,9 @@ function setProgress() {
   var percentg = 100 / total * (step - 1);
   var width = percentg.toFixed(2);
 
-  if (progressBar) progressBar.setAttribute("value", width);
+  if (progressbar) progressbar.setAttribute("value", width);
 }
 
 function dropProgress() {
-  progressBar.setAttribute("value", "0");
+  progressbar.setAttribute("value", "0");
 }

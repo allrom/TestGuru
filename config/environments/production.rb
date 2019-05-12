@@ -3,6 +3,11 @@ Rails.application.configure do
 
   # Code is not reloaded between requests.
   config.cache_classes = true
+  #
+  # for css to be processed on heroku?
+  config.serve_static_assets = true
+  config.assets.compile = true
+  config.assets.digest = true
 
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
@@ -11,7 +16,7 @@ Rails.application.configure do
   config.eager_load = true
 
   # Full error reports are disabled and caching is turned on.
-  config.consider_all_requests_local       = false
+  config.consider_all_requests_local = false
   config.action_controller.perform_caching = true
 
   # Ensures that a master key has been made available in either ENV["RAILS_MASTER_KEY"]
@@ -23,7 +28,9 @@ Rails.application.configure do
   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
   # Compress JavaScripts and CSS.
-  config.assets.js_compressor = :uglifier
+  ## config.assets.js_compressor = :uglifier
+
+  config.assets.js_compressor = Uglifier.new(harmony: true)
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
@@ -61,9 +68,30 @@ Rails.application.configure do
 
   # Use a real queuing backend for Active Job (and separate queues per environment)
   # config.active_job.queue_adapter     = :resque
+
+  config.active_job.queue_adapter = :async
   # config.active_job.queue_name_prefix = "Test_Guru_#{Rails.env}"
 
+  # By default this is on false?
+  config.action_mailer.perform_deliveries = true
+  # To not swallow delivery issues
+  config.action_mailer.raise_delivery_errors = true
+
   config.action_mailer.perform_caching = false
+
+  # Action mailer setup from screencast
+  #
+  config.action_mailer.default_url_options = { host: 'fatguru.herokuapp.com' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:              'smtp.gmail.com',
+    port:                 587,
+    user_name:            ENV['SMTP_USERNAME'],
+    password:             ENV['SMTP_PASSWORD'],
+  ## authentication:       'plain',
+    authentication:       :login,
+    enable_starttls_auto: true
+  }
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.

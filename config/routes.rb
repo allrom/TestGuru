@@ -7,9 +7,12 @@ Rails.application.routes.draw do
 
   root to: 'tests#index'
 
+  # feedback (contact) form creation
+  resources :contacts, shallow: true, only: %i[new create]
+
   resources :tests, only: :index do
 
-    member do
+      member do
       post :start
     end
   end

@@ -23,7 +23,7 @@ users = Admin.create([
   {
     identity_name: "Big",
     identity_sname: "Guru",
-    email: "adm@testguru.edu",
+    email: "allrom67@gmail.com",
     password: 'super'
     }
 ])
