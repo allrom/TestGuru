@@ -32,10 +32,13 @@ class TestPassage < ApplicationRecord
     self.test.questions.index(current_question) + 1 if current_question
   end
 
+  scope :passed_list, -> { where(:passed => true) }
+
   private
 
   def before_save_set_next_question
     self.current_question = self.new_record? ? test.questions.first : next_question
+    self.passed = 'true' if self.pass?
   end
 
   def correct_answer?(answer_ids)

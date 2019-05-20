@@ -1,0 +1,21 @@
+<div class="container">
+
+	<h5><%= t('.header') %></h5>
+
+  <%= render 'shared/errors', resource: @badge %>
+
+	<table class="table table-condensed table-striped">
+    <tr>
+      <th class = "col-md-3"><%= t('.id') %></th>
+      <th class = "col-md-3"><%= t('.program') %></th>
+      <th class = "col-md-3"><%= t('.rule') %></th>
+      <th class = "col-md-3"><%= t('.image') %></th>
+      <th colspan = "4", class = "col-md-4" ><%= t('.actions_avail') %></th>
+    </tr>
+    <%= render @badges %>
+	</table>
+
+  <p><%= link_to t('.new_badge_link'), new_admin_badge_path(@badge) %></p>
+
+  <p><%= link_to t('.home_link'), admin_tests_path %></p>
+</div>

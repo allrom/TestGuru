@@ -12,6 +12,9 @@ ru:
       answer:
         create: "Новый Ответ"
         update: "Изменить этот Ответ"
+      badge:
+        create: "Новый Диплом"
+        update: "Изменить этот Диплом"
     label:
       test:
         title: "Название"
@@ -38,15 +41,27 @@ ru:
     test:
       start: "Приступить"
 
+  badges:
+    index:
+      header: "* Список Дипломов *"
+      id: "№"
+      program: "Программа Диплома"
+      rule: "Правило применения"
+      image: "Изображение"
+      earned: "Ваши Дипломы"
+      home_link: "Список Тестов"
+
   layouts:
 
   shared:
     nav:
       greet: "Приветствуем, "
+      show_badge_link: "Дипломы"
       logout_link: "Выход"
       login_link: "Вход"
       signup_link: "Новый Гуру"
     nav_admin:
+      show_badge_link: "Дипломы, изменить"
       show_gist_link: "Таблица Gists"
       edit_link: "Изменить профиль"
       logout_link: "Выход"
@@ -82,6 +97,8 @@ ru:
       passed: " - Успех"
       failed: " - Неудачно"
       home_link: "Список Тестов"
+      success: "Вы получили Диплом(ы)! <i>Code(s): %{codes}</i>"
+      failure: "Диплом(ы) не получены..."
     show:
       home_link: "Список Тестов"
       gist_link: "Создать Gist для вопроса"
@@ -89,6 +106,7 @@ ru:
     gist:
       success: "Gist сохранен! <i><a href='%{gist_url}' target='blank'> Этот Gist на GitHub</a></i>"
       failure: "При сохранении Gist'а произошла ошибка"
+    badge_list:
 
   tests_mailer:
     completed_test:
@@ -97,6 +115,7 @@ ru:
   services:
     gist_params:
       description: "Для изучения отмечен вопрос из теста * %{title} *"
+
 ## Admin Логин
   admin:
     tests:
@@ -202,6 +221,39 @@ ru:
         gist_url: "Gist URL"
         email: "Пользователь"
         home_link: "Список Тестов"
+
+    badges:
+      create:
+        success: "Диплом успешно создан..."
+      update:
+        success: "Диплом изменен..."
+      destroy:
+        success: "Диплом удален..."
+      show:
+        edit:	"Редактировать Диплом"
+        return_link: "Назад"
+      edit:
+        return_link: "Назад"
+      new:
+        return_link: "Назад"
+      index:
+        header: "* Список Дипломов # Admin *"
+        id: "№"
+        program: "Программа Диплома"
+        rule: "Правило применения"
+        image: "Изображение"
+        actions_avail: "Работа с Дипломом"
+        new_badge_link: "Новый Диплом"
+        home_link: "Список Тестов"
+      badge:
+        show: "Содержание"
+        edit:	"Изменить"
+        delete: "Удалить"
+        are_you_sure: "Уверены ?"
+      form:
+        category: "Выберите Правило"
+        header_if_html: "Создать Новый Диплом"
+        header_else_html: "Редактировать <i>%{program}</i> Диплом"
 ##
   activerecord:
     errors:

@@ -7,6 +7,8 @@
 							<%= t('.greet') %> <%=current_user.identity_name %>
 							<%=	current_user.identity_sname %>!&nbsp;
 					</span>
+          <%= link_to t('.show_badge_link'), admin_badges_path, \
+																			 class: 'btn btn-outline-primary' %>
 					<%= link_to t('.show_gist_link'), admin_gists_path, \
 																			 class: 'btn btn-outline-warning' %>
 					<%= link_to t('.edit_link'), edit_user_registration_path, \

@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   # feedback (contact) form creation
   resources :contacts, shallow: true, only: %i[new create]
 
+  resources :badges, shallow: true, only: :index
+
   resources :tests, only: :index do
 
       member do
@@ -21,6 +23,7 @@ Rails.application.routes.draw do
     root to: 'tests#index'
 
     resources :gists, shallow: true, only: :index
+    resources :badges, shallow: true
 
     resources :tests do
       patch :update_inline, on: :member

@@ -1,0 +1,19 @@
+<div class="container">
+
+	<h5><%= t('.header') %></h5>
+
+  <%= render 'shared/errors', resource: @badge %>
+
+	<table class="table table-condensed table-striped">
+    <tr>
+      <th class = "col-md-3"><%= t('.id') %></th>
+      <th class = "col-md-3"><%= t('.program') %></th>
+      <th class = "col-md-3"><%= t('.rule') %></th>
+      <th class = "col-md-3"><%= t('.image') %></th>
+      <th class = "col-md-3"><%= t('.earned') %></th>
+    </tr>
+    <%= render @badges %>
+	</table>
+
+  <p><%= link_to t('.home_link'), current_user.admin? ? admin_root_path : root_path %></p>
+</div>

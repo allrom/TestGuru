@@ -1,0 +1,13 @@
+<p style="font-size:medium">
+  <strong>Badge Program:</strong>
+  <%= @badge.program %>
+</p>
+
+<p>
+  <strong>Badge Rule Assigned:</strong>
+  <%= @badge.rule.body %>
+</p>
+
+<p><%= link_to t('.edit'), edit_admin_badge_path(@badge) %></p>
+
+<p><%= link_to t('.return_link'), admin_badges_path %></p>
