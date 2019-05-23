@@ -12,11 +12,15 @@ class Test < ApplicationRecord
   validates :level, numericality: { greater_than_or_equal_to: 0 }
 
   scope :scope_by_category, -> title {
-    joins(:category).where("categories.title = ?", title)
+    joins(:category).where("categories.title ILIKE ?", title)
   }
 
-  def self.pick_by_category(title)
+  def self.title_by_category(title)
     scope_by_category(title).order(title: :desc).pluck(:title)
+  end
+
+  def self.ids_by_category(title)
+    scope_by_category(title).ids
   end
 
   scope :simple, -> { where(:level => 0..1) }

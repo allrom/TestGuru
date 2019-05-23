@@ -45,7 +45,7 @@ ru:
     index:
       header: "* Список Дипломов *"
       id: "№"
-      program: "Программа Диплома"
+      title: "Название Диплома"
       rule: "Правило применения"
       image: "Изображение"
       earned: "Ваши Дипломы"
@@ -92,13 +92,14 @@ ru:
       actions_avail: "Работа с Вопросом"
 
   test_passages:
+    update:
+      success: "Вы получили Диплом(ы)! <i>Code(s): %{badge_codes}</i>"
+      failure: "Диплом(ы) не получены..."
     result:
       header_html: "Пройден Тест * <i>%{title}</i> * !"
       passed: " - Успех"
       failed: " - Неудачно"
       home_link: "Список Тестов"
-      success: "Вы получили Диплом(ы)! <i>Code(s): %{codes}</i>"
-      failure: "Диплом(ы) не получены..."
     show:
       home_link: "Список Тестов"
       gist_link: "Создать Gist для вопроса"
@@ -239,7 +240,7 @@ ru:
       index:
         header: "* Список Дипломов # Admin *"
         id: "№"
-        program: "Программа Диплома"
+        title: "Название Диплома"
         rule: "Правило применения"
         image: "Изображение"
         actions_avail: "Работа с Дипломом"
@@ -251,9 +252,10 @@ ru:
         delete: "Удалить"
         are_you_sure: "Уверены ?"
       form:
-        category: "Выберите Правило"
+        rule: "Выберите Правило по Коду"
+        value: "Выберите Группу"
         header_if_html: "Создать Новый Диплом"
-        header_else_html: "Редактировать <i>%{program}</i> Диплом"
+        header_else_html: "Редактировать <i>%{title}</i> Диплом"
 ##
   activerecord:
     errors:

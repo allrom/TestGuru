@@ -45,7 +45,7 @@ en:
     index:
       header: "* All of Badges *"
       id: "No."
-      program: "Badge's Program Title"
+      title: "Badge's Program Title"
       rule: "Rule Involved"
       image: "Badge Image"
       earned: "Badges You Earned"
@@ -86,14 +86,15 @@ en:
       actions_avail: "Actions"
 
   test_passages:
+    update:
+      success: "You Earned the Badge(s)! <i>Code(s): %{badge_codes}</i>"
+      failure: "No Badges Earned..."
     result:
       header_html: "The * <i>%{title}</i> * Test Completed !"
       passed: " - Passed"
       failed: " - Failed"
       home_link: "Home"
       feedback: "Contact Admin"
-      success: "You Earned the Badge(s)! <i>Code(s): %{codes}</i>"
-      failure: "No Badges Earned..."
     show:
       home_link: "Home"
       gist_link: "Gist this Question"
@@ -247,7 +248,7 @@ en:
       index:
         header: "* All of Badges # Admin *"
         id: "No."
-        program: "Badge's Program Title"
+        title: "Badge's Program Title"
         rule: "Rule Involved"
         image: "Badge Image"
         actions_avail: "Actions"
@@ -259,9 +260,10 @@ en:
         delete: "Delete"
         are_you_sure: "Are You Sure ?"
       form:
-        rule: "Select Rule to Assign"
+        rule: "Select Rule Code to Assign"
+        value: "Select Series"
         header_if_html: "Create New Badge"
-        header_else_html: "Edit <i>%{program}</i> Badge"
+        header_else_html: "Edit <i>%{title}</i> Badge"
 ##
   activerecord:
     errors:

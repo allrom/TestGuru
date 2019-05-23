@@ -3,7 +3,7 @@
 </p>
 
 <p>
-  <% if @test_passage.pass? %>
+  <% if @test_passage.success? %>
     <span class = "passed">
       <%= @test_passage.result_percentage %> %
     </span>

@@ -1,9 +1,11 @@
 <tr>
   <td align = "center"><%= badge.id %></td>
-  <td><%= badge.program %></td>
+  <td><%= badge.title %></td>
   <td><%= badge.rule.body %></td>
 
-  <% count = BadgeGear.find_by(user_id: current_user.id, badge_id: badge.id)&.badge_count %>
+  <%
+    count = BadgesUser.where(user_id: current_user.id)&.badge_count(badge.id)
+  %>
   <td class = "see-badge-image" align = "center" data-count = "<%= count %>" >
     <%= image_tag(badge.image_filename, class: 'badge-image-file hide') %>
     <%= octicon 'eye', height: 20, class: 'text-success' %>

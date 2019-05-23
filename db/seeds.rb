@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 #
 # Clears all data, then seeds tables
-BadgeGear.destroy_all
+BadgesUser.destroy_all
 TestPassage.destroy_all
 Badge.delete_all
 BadgeRule.delete_all
@@ -80,16 +80,16 @@ answers = Answer.create([
 ])
 
 badge_rules = BadgeRule.create([
-  { body: "TestGuru Participant (Default Rule)", code: "TG-Start" },
-  { body: "TestGuru Basic Associate", code: "TG-Basic"},
-  { body: "TestGuru OneShot Sit&Pass", code: "TG-Shot"},
-  { body: "TestGuru Advanced Associate", code: "TG-Adv"},
-  { body: "TestGuru BackEnd Prof", code: "TG-AllBkEnd"}
+  { body: "TestGuru Participant (Exam Passed)", code: "start", value: "general", awarded_once: false, },
+  { body: "TestGuru All Simple Level", code: "level", value: "simple"},
+  { body: "TestGuru OneShot Fast Pass", code: "fast_start", value: "general", awarded_once: false,},
+  { body: "TestGuru All Moderate Level", code: "level", value: "moderate"},
+  { body: "TestGuru All BackEnd Professional", code: "category", value: "backend"}
 ])
 
 badges = Badge.create([
-  { program: "Passed the Test", image_filename: "Cert_prt.png", rule_id: badge_rules[0].id },
-  { program: "Basic Associate", image_filename: "Cert_simple.png", rule_id: badge_rules[1].id},
-  { program: "Test pass-at-once", image_filename: "Cert_shot.png", rule_id: badge_rules[2].id },
-  { program: "BackEnd Professional", image_filename: "Cert_bkend.png", rule_id: badge_rules[4].id }
+  { title: "Passed the Test", image_filename: "Cert_prt.png", rule_id: badge_rules[0].id },
+  { title: "Basic Associate", image_filename: "Cert_simple.png", rule_id: badge_rules[1].id},
+  { title: "Test pass-at-once", image_filename: "Cert_shot.png", rule_id: badge_rules[2].id },
+  { title: "BackEnd Professional", image_filename: "Cert_bkend.png", rule_id: badge_rules[4].id }
 ])

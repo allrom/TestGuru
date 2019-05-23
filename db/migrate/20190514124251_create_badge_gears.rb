@@ -4,8 +4,6 @@ class CreateBadgeGears < ActiveRecord::Migration[5.2]
       t.references :user, foreign_key: true
       t.references :badge, foreign_key: true
 
-       t.integer :badge_count, default: 0
-
       t.timestamps
     end
   end

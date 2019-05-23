@@ -1,9 +1,9 @@
 class BadgeRule < ApplicationRecord
-  ONE_PASS_CODES = %w[TG-Basic TG-Adv TG-Prof TG-AllBkEnd].freeze
 
   has_one :badge, foreign_key: "rule_id"
 
-  validates :body, presence: true
+  validates :body, :code, presence: true
 
-  scope :one_pass, -> { where(code: ONE_PASS_CODES).ids }
+  scope :by_code, -> code { where("code = ?", code) }
+  scope :by_value, -> value { where("value = ?", value) }
 end

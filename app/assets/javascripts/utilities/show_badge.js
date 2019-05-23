@@ -6,7 +6,7 @@ document.addEventListener('turbolinks:load', function() {
 
   if (controls.length !==0) {
     for (var i = 0; i < controls.length; i++) {
-      if (controls[i].dataset.count) {
+      if (controls[i].dataset.count !== '0') {
         controls[i].addEventListener('click', showBadgeImage);
       }
       else {

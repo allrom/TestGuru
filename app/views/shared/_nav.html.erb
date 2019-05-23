@@ -8,8 +8,11 @@
 				<%= t('.greet') %> <%=current_user.identity_name %>
 				<%= current_user.identity_sname %>!&nbsp;
 			 </span>
-      <%= link_to t('.show_badge_link'), badges_path, \
-																			 class: 'btn btn-outline-primary' %>
+      <%=
+        link_to t('.show_badge_link'), badges_path, \
+																			 class: 'btn btn-outline-primary',
+                                       target: :_blank
+      %>
 			<%= link_to t('.logout_link'), destroy_user_session_path, method: 'delete', \
 																		 class: 'btn btn-outline-danger' %>
 		<% else %>

@@ -5,8 +5,8 @@
 
 	<%= render 'shared/errors', resource: @badge %>
   <p>
-    <%= form.label :program %>
-    <%= form.text_field :program %>
+    <%= form.label :title %>
+    <%= form.text_field :title %>
   </p><br>
 
   <p>
@@ -27,6 +27,15 @@
     <%=
       form.text_field :code, class: 'dimmed',
                              value: "#{@badge&.rule&.code}",
+                             readonly: true
+    %>
+  </p><br>
+
+  <p>
+    <%= form.label :value %>
+    <%=
+      form.text_field :value, class: 'dimmed',
+                             value: "#{@badge&.rule&.value}",
                              readonly: true
     %>
   </p><br>

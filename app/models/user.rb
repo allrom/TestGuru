@@ -16,8 +16,8 @@ class User < ApplicationRecord
   has_many :created_tests, class_name: "Test", foreign_key: "author_id"
   has_many :gists
 
-  has_many :badge_gears
-  has_many :badges, through: :badge_gears
+  has_many :badges_users
+  has_many :badges, through: :badges_users
 
   def pick_by_level(difficulty_level)
     tests.where(level: difficulty_level)

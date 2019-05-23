@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_20_133607) do
+ActiveRecord::Schema.define(version: 2019_05_21_220037) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,31 +24,33 @@ ActiveRecord::Schema.define(version: 2019_05_20_133607) do
     t.index ["question_id"], name: "index_answers_on_question_id"
   end
 
-  create_table "badge_gears", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "badge_id"
-    t.integer "badge_count", default: 0
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["badge_id"], name: "index_badge_gears_on_badge_id"
-    t.index ["user_id"], name: "index_badge_gears_on_user_id"
-  end
-
   create_table "badge_rules", force: :cascade do |t|
     t.string "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "code", null: false
-    t.index ["code"], name: "index_badge_rules_on_code", unique: true
+    t.boolean "awarded_once", default: true, null: false
+    t.string "value"
+    t.index ["awarded_once"], name: "index_badge_rules_on_awarded_once", where: "(awarded_once IS TRUE)"
+    t.index ["code"], name: "index_badge_rules_on_code"
   end
 
   create_table "badges", force: :cascade do |t|
-    t.string "program", null: false
+    t.string "title", null: false
     t.string "image_filename", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "rule_id", null: false
     t.index ["rule_id"], name: "index_badges_on_rule_id", unique: true
+  end
+
+  create_table "badges_users", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "badge_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["badge_id"], name: "index_badges_users_on_badge_id"
+    t.index ["user_id"], name: "index_badges_users_on_user_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -126,9 +128,9 @@ ActiveRecord::Schema.define(version: 2019_05_20_133607) do
   end
 
   add_foreign_key "answers", "questions"
-  add_foreign_key "badge_gears", "badges"
-  add_foreign_key "badge_gears", "users"
   add_foreign_key "badges", "badge_rules", column: "rule_id"
+  add_foreign_key "badges_users", "badges"
+  add_foreign_key "badges_users", "users"
   add_foreign_key "gists", "questions", name: "question_to_gist", on_update: :cascade, on_delete: :cascade
   add_foreign_key "gists", "users"
   add_foreign_key "questions", "tests"
