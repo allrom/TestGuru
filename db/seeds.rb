@@ -7,7 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 #
 # Clears all data, then seeds tables
+BadgesUser.destroy_all
 TestPassage.destroy_all
+Badge.delete_all
+BadgeRule.delete_all
 Gist.delete_all
 Answer.delete_all
 Question.delete_all
@@ -37,7 +40,7 @@ categories = Category.create([
 tests = Test.create([
   { title: "Ruby Language", level: 5, category_id: categories[1].id, author_id: User.first.id },
   { title: "PHP Language", level: 3, category_id: categories[1].id, author_id: User.first.id },
-  { title: "HTML", level: 2, category_id: categories[0].id, author_id: User.first.id },
+  { title: "HTML", level: 1, category_id: categories[0].id, author_id: User.first.id },
   { title: "JavaScript", level: 3, category_id: categories[0].id, author_id: User.first.id },
   { title: "BigData Platforms", level: 1, category_id: categories[2].id, author_id: User.first.id }
 ])
@@ -74,4 +77,19 @@ answers = Answer.create([
   { body: "Avoid using heading markup tags", question_id: questions[9].id },
   { body: "\*.jvs", question_id: questions[10].id },
   { body: "Large and complex datasets", correct: true, question_id: questions[11].id }
+])
+
+badge_rules = BadgeRule.create([
+  { body: "TestGuru Participant (Exam Passed)", code: "start", value: "general", awarded_once: false, },
+  { body: "TestGuru All Simple Level", code: "level", value: "simple"},
+  { body: "TestGuru OneShot Fast Pass", code: "fast_start", value: "general", awarded_once: false,},
+  { body: "TestGuru All Moderate Level", code: "level", value: "moderate"},
+  { body: "TestGuru All BackEnd Professional", code: "category", value: "backend"}
+])
+
+badges = Badge.create([
+  { title: "Passed the Test", image_filename: "Cert_prt.png", rule_id: badge_rules[0].id },
+  { title: "Basic Associate", image_filename: "Cert_simple.png", rule_id: badge_rules[1].id},
+  { title: "Test pass-at-once", image_filename: "Cert_shot.png", rule_id: badge_rules[2].id },
+  { title: "BackEnd Professional", image_filename: "Cert_bkend.png", rule_id: badge_rules[4].id }
 ])

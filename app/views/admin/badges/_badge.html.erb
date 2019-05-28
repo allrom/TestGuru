@@ -1,0 +1,18 @@
+<tr>
+  <td align = "center"><%= badge.id %></td>
+  <td><%= badge.title %></td>
+  <td><%= badge.rule.body %></td>
+  <td class = "see-badge-image" align = "center" data-count = "unlimited">
+    <%= image_tag(badge.image_filename, class: 'badge-image-file hide') %>
+    <%= octicon 'eye', height: 20, class: 'text-success' %>
+  </td>
+  <td><%= link_to t('.edit'), edit_admin_badge_path(badge), \
+															class: 'badge badge-success' %></td>
+  <td>
+    <%= link_to t('.delete'),
+                admin_badge_path(badge), \
+                method: :delete, \
+                data: { confirm: t('.are_you_sure') }, \
+								class: 'badge badge-danger' %>
+  </td>
+</tr>

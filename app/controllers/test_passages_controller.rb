@@ -29,7 +29,15 @@ class TestPassagesController < ApplicationController
 
     if @test_passage.completed?
       TestsMailer.completed_test(@test_passage).deliver_now
-      redirect_to result_test_passage_path(@test_passage)
+
+      award_list = award! if @test_passage.passed?
+      flash_options = if award_list
+        { notice: t('.success', badge_codes: award_list.join(' * ')) }
+      else
+        { alert: t('.failure') }
+      end
+
+      redirect_to result_test_passage_path(@test_passage), flash_options
     else
       render :show
     end
@@ -39,5 +47,9 @@ class TestPassagesController < ApplicationController
 
   def find_test_passage
     @test_passage = TestPassage.find(params[:id])
+  end
+
+  def award!
+    BadgeGearService.call(@test_passage)
   end
 end

@@ -11,6 +11,10 @@ class TestPassage < ApplicationRecord
     current_question.nil?
   end
 
+  def passed?
+    self.passed
+  end
+
   def accept!(answer_ids)
     answer_ids ||= []
     self.correct_questions += 1 if correct_answer?(answer_ids)
@@ -24,7 +28,7 @@ class TestPassage < ApplicationRecord
     (correct.to_f / total.to_f * 100.0).round(1)
   end
 
-  def pass?
+  def success?
     result_percentage >= PASS_MARK
   end
 
@@ -32,10 +36,13 @@ class TestPassage < ApplicationRecord
     self.test.questions.index(current_question) + 1 if current_question
   end
 
+  scope :passed_list, -> { where(passed: true) }
+
   private
 
   def before_save_set_next_question
     self.current_question = self.new_record? ? test.questions.first : next_question
+    self.passed = true if self.success?
   end
 
   def correct_answer?(answer_ids)

@@ -12,6 +12,9 @@ en:
       answer:
         create: "Create new Answer"
         update: "Update Answer"
+      badge:
+        create: "Create new Badge"
+        update: "Update Badge"
     label:
       test:
         title: "Title"
@@ -38,16 +41,28 @@ en:
     test:
       start: "Start"
 
+  badges:
+    index:
+      header: "* All of Badges *"
+      id: "No."
+      title: "Badge's Program Title"
+      rule: "Rule Involved"
+      image: "Badge Image"
+      earned: "Badges You Earned"
+      home_link: "Home"
+
   layouts:
 
   shared:
     nav_admin:
+      show_badge_link: "Badge's Master"
       show_gist_link: "Gists Table"
       edit_link: "Edit Profile"
       logout_link: "Log Out"
       greet: "Welcome, "
     nav:
       greet: "Welcome, "
+      show_badge_link: "Badges"
       logout_link: "LogOut"
       login_link: "LogIn"
       signup_link: "New Guru"
@@ -71,6 +86,9 @@ en:
       actions_avail: "Actions"
 
   test_passages:
+    update:
+      success: "You Earned the Badge(s)! <i>Code(s): %{badge_codes}</i>"
+      failure: "No Badges Earned..."
     result:
       header_html: "The * <i>%{title}</i> * Test Completed !"
       passed: " - Passed"
@@ -85,6 +103,7 @@ en:
       success: "The Gist have been created!
                 <i><a href='%{gist_url}' target='blank'> See Created Gist on GitHub</a></i>"
       failure: "An error occured while creating Gist..."
+    badge_list:
 
   contacts:
     new:
@@ -211,6 +230,40 @@ en:
         gist_url: "Gist's URL"
         email: "User"
         home_link: "Home"
+
+    badges:
+      create:
+        success: "New Badge created..."
+      update:
+        success: "Badge updated..."
+      destroy:
+        success: "Badge deleted..."
+      show:
+        return_link: "Back"
+        edit:	"Edit this Badge"
+      edit:
+        return_link: "Back"
+      new:
+        return_link: "Back"
+      index:
+        header: "* All of Badges # Admin *"
+        id: "No."
+        title: "Badge's Program Title"
+        rule: "Rule Involved"
+        image: "Badge Image"
+        actions_avail: "Actions"
+        new_badge_link: "A new Badge"
+        home_link: "Home"
+      badge:
+        show: "Show"
+        edit:	"Edit"
+        delete: "Delete"
+        are_you_sure: "Are You Sure ?"
+      form:
+        rule: "Select Rule Code to Assign"
+        value: "Select Series"
+        header_if_html: "Create New Badge"
+        header_else_html: "Edit <i>%{title}</i> Badge"
 ##
   activerecord:
     errors:

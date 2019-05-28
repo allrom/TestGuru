@@ -1,0 +1,44 @@
+<%= form_with(model: model, local: true) do |form| %>
+  <h5 style="color:blue; padding: 0 0 0 50px">
+    <%= badge_header(@badge) %>
+  </h5>
+
+	<%= render 'shared/errors', resource: @badge %>
+  <p>
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </p><br>
+
+  <p>
+    <%= form.label :image_filename %>
+    <%= form.text_field :image_filename, placeholder: "*.png" %>
+  </p><br>
+
+  <p>
+    <%= form.label :rule_id %>
+    <%= form.collection_select :rule_id, BadgeRule.all,
+															 :id, :body,
+															 { prompt: t('.rule') },
+															 { class: "form-select" } %>
+  </p><br>
+
+  <p>
+    <%= form.label :code %>
+    <%=
+      form.text_field :code, class: 'dimmed',
+                             value: "#{@badge&.rule&.code}",
+                             readonly: true
+    %>
+  </p><br>
+
+  <p>
+    <%= form.label :value %>
+    <%=
+      form.text_field :value, class: 'dimmed',
+                             value: "#{@badge&.rule&.value}",
+                             readonly: true
+    %>
+  </p><br>
+
+  <p><%= form.submit %></p><br>
+<% end %>
