@@ -11,10 +11,6 @@ class TestPassage < ApplicationRecord
     current_question.nil?
   end
 
-  def passed?
-    self.passed
-  end
-
   def accept!(answer_ids)
     answer_ids ||= []
     self.correct_questions += 1 if correct_answer?(answer_ids)
@@ -34,6 +30,13 @@ class TestPassage < ApplicationRecord
 
   def current_question_number
     self.test.questions.index(current_question) + 1 if current_question
+  end
+
+  def to_be_completed_at
+    due_hours = self.test.lasting.strftime("%H").to_i
+    due_minutes = self.test.lasting.strftime("%M").to_i
+    due_seconds = self.test.lasting.strftime("%S").to_i
+    interval = self.created_at + due_hours.hour + due_minutes.minute + due_seconds.second
   end
 
   scope :passed_list, -> { where(passed: true) }

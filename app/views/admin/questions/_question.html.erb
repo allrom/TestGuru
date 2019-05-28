@@ -1,6 +1,6 @@
-<tr>
-  <td align = "center"><%= question.id %></td>
-  <td><%= question.body %></td>
+<tr align = "center">
+  <td><%= question.id %></td>
+  <td align = "left"><%= question.body %></td>
   <td><%= link_to t('.show'), admin_question_path(question), \
 																			class: 'badge badge-info' %></td>
   <td><%= link_to t('.edit'), edit_admin_question_path(question), \

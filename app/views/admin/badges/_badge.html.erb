@@ -1,7 +1,7 @@
-<tr>
-  <td align = "center"><%= badge.id %></td>
-  <td><%= badge.title %></td>
-  <td><%= badge.rule.body %></td>
+<tr align = "center">
+  <td><%= badge.id %></td>
+  <td align = "left"><%= badge.title %></td>
+  <td align = "left"><%= badge.rule.body %></td>
   <td class = "see-badge-image" align = "center" data-count = "unlimited">
     <%= image_tag(badge.image_filename, class: 'badge-image-file hide') %>
     <%= octicon 'eye', height: 20, class: 'text-success' %>

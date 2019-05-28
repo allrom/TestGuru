@@ -99,6 +99,8 @@ en:
       home_link: "Home"
       gist_link: "Gist this Question"
       question_num: "Question No %{q_num} of %{total} total"
+      time_remains: "Test Time Remains:"
+      time_expired: "Test Time Expired..."
     gist:
       success: "The Gist have been created!
                 <i><a href='%{gist_url}' target='blank'> See Created Gist on GitHub</a></i>"

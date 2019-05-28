@@ -1,6 +1,6 @@
 <%= form_with(model: model, local: true) do |form| %>
   <h5 style="color:blue; padding: 0 0 0 50px">
-    <%= test_header(@test) %>
+    <mark><%= test_header(@test) %></mark>
   </h5>
 
 	<%= render 'shared/errors', resource: @test %>
@@ -20,6 +20,21 @@
   <p>
     <%= form.label :level %>
     <%= form.number_field :level, max: 5 %>
+  </p><br>
+
+  <p>
+    <%= form.label :timing, class: "timing" %>
+    <%= form.check_box("timing", {}, "true", "false") %>
+  </p>
+
+  <p>
+    <%= form.label :lasting %>
+    <%=
+      form.time_select :lasting,
+                       value: "#{@test&.lasting}",
+                       prompt: { hour: 'Hour', minute: 'Minute', second: 'Second' },
+                       include_seconds: true
+    %>
   </p><br>
 
   <p><%= form.submit %></p><br>

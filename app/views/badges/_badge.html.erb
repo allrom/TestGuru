@@ -4,7 +4,7 @@
   <td><%= badge.rule.body %></td>
 
   <%
-    count = BadgesUser.where(user_id: current_user.id)&.badge_count(badge.id)
+    count = BadgesUser.where(user_id: current_user.id, badge_id: badge.id)&.count
   %>
   <td class = "see-badge-image" align = "center" data-count = "<%= count %>" >
     <%= image_tag(badge.image_filename, class: 'badge-image-file hide') %>
