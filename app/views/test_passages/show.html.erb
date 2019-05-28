@@ -1,5 +1,7 @@
 <p style="font-size:medium">
-  <strong>Passing the * <%= @test_passage.test.title %> * Test:</strong>&nbsp;
+  <strong>
+    Passing the * <mark><%= @test_passage.test.title %></mark> * Test:
+  </strong>&nbsp;
 </p>
 
 <% if @test_passage.current_question %>
@@ -15,18 +17,20 @@
                           question_num: crnt_question_n
                           }
     %>
-<br>
-<p><i>
-  <%=
-		t('.question_num', q_num: crnt_question_n,
+  <br>
+  <p><i>
+    <%=
+      t('.question_num', q_num: crnt_question_n,
                        total: n_o_questions)
-	%>
-</i></p>
+    %>
+  </i></p>
 
-<p><%= @test_passage.current_question.body %></p>
+  <p><%= @test_passage.current_question.body %></p>
 
-<p>
-  <%= form_with url: test_passage_path(@test_passage), html: { id: "testPassage" }, local: true, method: :put do |form| %>
+  <p>
+    <%=
+      form_with url: test_passage_path(@test_passage), html: { id: "testPassage" }, local: true, method: :put do |form|
+    %>
       <%= form.collection_check_boxes \
         :answer_ids,
         @test_passage.current_question.answers, :id, :body, include_hidden: false  do |b| %>
@@ -38,8 +42,41 @@
 
     <p><%= form.submit "Next", class: 'next-question' %></p>
   <% end %>
-</p><br>
+  </p><br>
 <% end %>
+
+
+<%= javascript_include_tag "jquery.countdown.min" %>
+
+<p align = "center" class = "exam_timer_header hide"><%= t('.time_remains') %></p>
+
+<div class = "exam_timer hide">
+  <script type="text/javascript">
+    $(document).ready(function() {
+      var expiryDate = new Date('<%= @test_passage.to_be_completed_at %>'.replace(/\-/g, '\/').replace(/[T|Z]/g, ' '));
+
+      $('.exam_timer').countdown({
+        until: expiryDate,
+        format: 'HMS',
+        expiryUrl: '<%= result_test_passage_path(@test_passage) %>',
+        onExpiry: timeExpired
+      });
+
+      function timeExpired() {
+        alert('<%= t('.time_expired') %>');
+      }
+    });
+    <% if @test_passage.test.timing? %>
+      $('.exam_timer').toggle();
+      $('.exam_timer_header').toggle();
+    <% end %>
+
+    <% if @test_passage.completed? %>
+      $('.exam_timer').countdown('destroy');
+    <% end %>
+  </script>
+</div><br><br>
+
 
 <p><%= link_to t('.gist_link'), gist_test_passage_path(@test_passage), method: :post %></p>
 

@@ -104,6 +104,8 @@ ru:
       home_link: "Список Тестов"
       gist_link: "Создать Gist для вопроса"
       question_num: "Вопрос № %{q_num}, всего %{total}"
+      time_remains: "Оставшееся Время:"
+      time_expired: "Время Вышло..."
     gist:
       success: "Gist сохранен! <i><a href='%{gist_url}' target='blank'> Этот Gist на GitHub</a></i>"
       failure: "При сохранении Gist'а произошла ошибка"

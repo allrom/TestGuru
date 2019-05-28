@@ -16,4 +16,6 @@
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
+//= require jquery.plugin.min.js
+//= require jquery.countdown.min.js
 //= require_tree .
