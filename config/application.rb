@@ -18,8 +18,8 @@ module TestGuru
 
     config.time_zone = 'Moscow'
     # Disable ActiveRecord's time zone logic
-    config.active_record.default_timezone = :local
-    config.active_record.time_zone_aware_attributes = false
+    # config.active_record.default_timezone = :local
+    # config.active_record.time_zone_aware_attributes = false
 
     config.i18n.default_locale = :en
 

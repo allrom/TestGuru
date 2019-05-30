@@ -25,7 +25,11 @@ class TestPassagesController < ApplicationController
   end
 
   def update
-    @test_passage.accept!(params[:answer_ids])
+    if @test_passage.expired?
+      flash.now[:warning] = t('.expired')
+    else
+      @test_passage.accept!(params[:answer_ids])
+    end
 
     if @test_passage.completed?
       TestsMailer.completed_test(@test_passage).deliver_now

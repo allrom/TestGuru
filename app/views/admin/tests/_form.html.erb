@@ -20,22 +20,17 @@
   <p>
     <%= form.label :level %>
     <%= form.number_field :level, max: 5 %>
-  </p><br>
-
-  <p>
-    <%= form.label :timing, class: "timing" %>
-    <%= form.check_box("timing", {}, "true", "false") %>
   </p>
 
-  <p>
-    <%= form.label :lasting %>
-    <%=
-      form.time_select :lasting,
-                       value: "#{@test&.lasting}",
-                       prompt: { hour: 'Hour', minute: 'Minute', second: 'Second' },
-                       include_seconds: true
-    %>
-  </p><br>
+  <div align = "center" >
+    <h6 align = "center" class = "timing"><%= test_timing(@test) %></h6><br>
+
+    <%= form.label :minutes %>
+    <%= form.number_field :minutes, min: 0, max: 59 %>&nbsp
+
+    <%= form.label :seconds %>
+    <%= form.number_field :seconds, min: 0, max: 59 %>
+  </div><br>
 
   <p><%= form.submit %></p><br>
 <% end %>

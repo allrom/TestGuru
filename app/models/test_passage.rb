@@ -32,11 +32,13 @@ class TestPassage < ApplicationRecord
     self.test.questions.index(current_question) + 1 if current_question
   end
 
-  def to_be_completed_at
-    due_hours = self.test.lasting.strftime("%H").to_i
-    due_minutes = self.test.lasting.strftime("%M").to_i
-    due_seconds = self.test.lasting.strftime("%S").to_i
-    interval = self.created_at + due_hours.hour + due_minutes.minute + due_seconds.second
+  def expiry_date
+    seconds = self.test.expire_in
+    date = self.created_at + seconds
+  end
+
+  def expired?
+    self.test.expire_in? && self.expiry_date < DateTime.current
   end
 
   scope :passed_list, -> { where(passed: true) }

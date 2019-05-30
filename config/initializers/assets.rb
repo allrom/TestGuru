@@ -12,4 +12,9 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
+# !
+# Receiving error "asset was not declared to be precompiled in production..." without this
+# and "countdown Function not found..." when they ain't in manifest
+# !
 Rails.application.config.assets.precompile += %w( jquery.countdown.min.js jquery.plugin.min.js )
+Rails.application.config.assets.precompile += %w( utilities/test_timer.js )

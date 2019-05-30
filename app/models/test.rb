@@ -6,6 +6,11 @@ class Test < ApplicationRecord
   belongs_to :category, optional: true
   belongs_to :author, class_name: "User"
 
+  before_save :before_save_compute_test_seconds, on: %i[create, update] if %i[minutes, seconds].any?
+
+  attribute :minutes
+  attribute :seconds
+
   validates :title, presence: true,
                     uniqueness: { scope: :level }
 
@@ -26,4 +31,10 @@ class Test < ApplicationRecord
   scope :simple, -> { where(:level => 0..1) }
   scope :moderate, -> { where(:level => 2..4) }
   scope :complex, -> { where(:level => 5..Float::INFINITY) }
+
+  private
+
+  def before_save_compute_test_seconds
+    self.expire_in = 60 * minutes.to_i + seconds.to_i
+  end
 end

@@ -6,4 +6,12 @@ module Admin::TestsHelper
 			t('.header_else_html', title: test.title)
     end
   end
+
+  def test_timing(test)
+    if test.expire_in?
+			t('.test_lasting')
+    else
+			t('.test_lasting_else')
+    end
+  end
 end
