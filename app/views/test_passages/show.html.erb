@@ -1,5 +1,7 @@
 <p style="font-size:medium">
-  <strong>Passing the * <%= @test_passage.test.title %> * Test:</strong>&nbsp;
+  <strong>
+    Passing the * <mark><%= @test_passage.test.title %></mark> * Test:
+  </strong>&nbsp;
 </p>
 
 <% if @test_passage.current_question %>
@@ -15,18 +17,20 @@
                           question_num: crnt_question_n
                           }
     %>
-<br>
-<p><i>
-  <%=
-		t('.question_num', q_num: crnt_question_n,
+  <br>
+  <p><i>
+    <%=
+      t('.question_num', q_num: crnt_question_n,
                        total: n_o_questions)
-	%>
-</i></p>
+    %>
+  </i></p>
 
-<p><%= @test_passage.current_question.body %></p>
+  <p><%= @test_passage.current_question.body %></p>
 
-<p>
-  <%= form_with url: test_passage_path(@test_passage), html: { id: "testPassage" }, local: true, method: :put do |form| %>
+  <p>
+    <%=
+      form_with url: test_passage_path(@test_passage), html: { id: "testPassage" }, local: true, method: :put do |form|
+    %>
       <%= form.collection_check_boxes \
         :answer_ids,
         @test_passage.current_question.answers, :id, :body, include_hidden: false  do |b| %>
@@ -38,8 +42,29 @@
 
     <p><%= form.submit "Next", class: 'next-question' %></p>
   <% end %>
-</p><br>
+  </p><br>
 <% end %>
+
+
+<div align = "center" class = "exam_timer_header hide"><%= t('.time_remains') %></div><br>
+
+<% test_seconds =  @test_passage.test.expire_in %>
+<% timer_enabled = @test_passage.test.expire_in.present? %>
+<% test_completed = @test_passage.completed? %>
+<% url = result_test_passage_path(@test_passage) %>
+<%=
+  content_tag :div, '', class: 'exam_timer',
+                        data: {
+                          seconds: test_seconds,
+                          timer: timer_enabled,
+                          completed: test_completed,
+                          redirect_expire: url
+                          }
+%>
+
+<%= javascript_include_tag "jquery.countdown.min" %>
+<%= javascript_include_tag "utilities/test_timer" %><br>
+
 
 <p><%= link_to t('.gist_link'), gist_test_passage_path(@test_passage), method: :post %></p>
 

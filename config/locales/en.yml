@@ -89,6 +89,7 @@ en:
     update:
       success: "You Earned the Badge(s)! <i>Code(s): %{badge_codes}</i>"
       failure: "No Badges Earned..."
+      expired: "Sorry, Test Expired..."
     result:
       header_html: "The * <i>%{title}</i> * Test Completed !"
       passed: " - Passed"
@@ -99,6 +100,8 @@ en:
       home_link: "Home"
       gist_link: "Gist this Question"
       question_num: "Question No %{q_num} of %{total} total"
+      time_remains: "Test Time Remains:"
+      time_expired: "Test Time Expired..."
     gist:
       success: "The Gist have been created!
                 <i><a href='%{gist_url}' target='blank'> See Created Gist on GitHub</a></i>"
@@ -164,6 +167,8 @@ en:
         category: "Select Category"
         header_if_html: "Create New Test"
         header_else_html: "Edit <i>%{title}</i> Test"
+        test_interval_else: "Test Duration Time:"
+        test_interval: "Test Duration Time(enabled):"
       form_inline:
         submit: "OK"
 

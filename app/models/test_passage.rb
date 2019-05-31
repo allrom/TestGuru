@@ -11,10 +11,6 @@ class TestPassage < ApplicationRecord
     current_question.nil?
   end
 
-  def passed?
-    self.passed
-  end
-
   def accept!(answer_ids)
     answer_ids ||= []
     self.correct_questions += 1 if correct_answer?(answer_ids)
@@ -24,7 +20,7 @@ class TestPassage < ApplicationRecord
 
   def result_percentage
     correct = self.correct_questions
-    total = self.test.questions.count
+    total = test.questions.count
     (correct.to_f / total.to_f * 100.0).round(1)
   end
 
@@ -33,7 +29,16 @@ class TestPassage < ApplicationRecord
   end
 
   def current_question_number
-    self.test.questions.index(current_question) + 1 if current_question
+    test.questions.index(current_question) + 1 if current_question
+  end
+
+  def expiry_date
+    seconds = test.expire_in
+    date = self.created_at + seconds
+  end
+
+  def expired?
+    test.expire_in? && self.expiry_date < DateTime.current
   end
 
   scope :passed_list, -> { where(passed: true) }

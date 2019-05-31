@@ -64,7 +64,7 @@ div {
 }
 
 input[type="number"] {
-  width: 60px;
+  width: 70px;
 }
 
 label.required:after {
@@ -146,4 +146,10 @@ progress::-moz-progress-bar {
   border-color: #d6e9c6;
   color: #468847;
   text-align: left;
+}
+
+.exam_timer {
+  box-sizing: content-box;
+  width: 180px;
+  margin: auto;
 }
