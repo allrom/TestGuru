@@ -46,36 +46,24 @@
 <% end %>
 
 
+<div align = "center" class = "exam_timer_header hide"><%= t('.time_remains') %></div><br>
+
+<% test_seconds =  @test_passage.test.expire_in %>
+<% timer_enabled = @test_passage.test.expire_in.present? %>
+<% test_completed = @test_passage.completed? %>
+<% url = result_test_passage_path(@test_passage) %>
+<%=
+  content_tag :div, '', class: 'exam_timer',
+                        data: {
+                          seconds: test_seconds,
+                          timer: timer_enabled,
+                          completed: test_completed,
+                          redirect_expire: url
+                          }
+%>
+
 <%= javascript_include_tag "jquery.countdown.min" %>
-
-<p align = "center" class = "exam_timer_header hide"><%= t('.time_remains') %></p>
-
-<div class = "exam_timer hide">
-  <script type="text/javascript">
-    $(document).ready(function() {
-      var expiryDate = new Date('<%= @test_passage.to_be_completed_at %>'.replace(/\-/g, '\/').replace(/[T|Z]/g, ' '));
-
-      $('.exam_timer').countdown({
-        until: expiryDate,
-        format: 'HMS',
-        expiryUrl: '<%= result_test_passage_path(@test_passage) %>',
-        onExpiry: timeExpired
-      });
-
-      function timeExpired() {
-        alert('<%= t('.time_expired') %>');
-      }
-    });
-    <% if @test_passage.test.timing? %>
-      $('.exam_timer').toggle();
-      $('.exam_timer_header').toggle();
-    <% end %>
-
-    <% if @test_passage.completed? %>
-      $('.exam_timer').countdown('destroy');
-    <% end %>
-  </script>
-</div><br><br>
+<%= javascript_include_tag "utilities/test_timer" %><br>
 
 
 <p><%= link_to t('.gist_link'), gist_test_passage_path(@test_passage), method: :post %></p>

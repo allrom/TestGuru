@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_23_212111) do
+ActiveRecord::Schema.define(version: 2019_05_28_120323) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -97,8 +97,7 @@ ActiveRecord::Schema.define(version: 2019_05_23_212111) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "author_id"
-    t.boolean "timing", default: false
-    t.datetime "lasting", default: '1970-01-01 00:00:00'
+    t.integer "expire_in"
     t.index ["category_id"], name: "index_tests_on_category_id"
     t.index ["title", "level"], name: "index_tests_on_title_and_level", unique: true
   end

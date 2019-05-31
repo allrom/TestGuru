@@ -95,6 +95,7 @@ ru:
     update:
       success: "Вы получили Диплом(ы)! <i>Code(s): %{badge_codes}</i>"
       failure: "Диплом(ы) не получены..."
+      expired: "Время Вышло..."
     result:
       header_html: "Пройден Тест * <i>%{title}</i> * !"
       passed: " - Успех"
@@ -158,6 +159,8 @@ ru:
         category: "Выберите Категорию"
         header_if_html: "Построить новый Тест"
         header_else_html: "Изменить Тест <i>%{title}</i>"
+        test_interval: "Время Прохождения(задано):"
+        test_interval_else: "Время Прохождения:"
       form_inline:
         submit: "OK"
 
