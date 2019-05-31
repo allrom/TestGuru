@@ -12,9 +12,9 @@
   <p>
     <%= form.label :category_id %>
     <%= form.collection_select :category_id, Category.all,
-															 :id, :title,
-															 { prompt: t('.category') },
-															 { class: "form-select" } %>
+                                :id, :title,
+                                { prompt: t('.category') },
+                                { class: "form-select" } %>
   </p><br>
 
   <p>
@@ -32,20 +32,6 @@
     <%= form.number_field :seconds, min: 0, max: 59 %>
   </div><br>
 
-  <p>
-    <%= form.label :timing, class: "timing" %>
-    <%= form.check_box("timing", {}, "true", "false") %>
-  </p>
-
-  <p>
-    <%= form.label :lasting %>
-    <%=
-      form.time_select :lasting,
-                       value: "#{@test&.lasting}",
-                       prompt: { hour: 'Hour', minute: 'Minute', second: 'Second' },
-                       include_seconds: true
-    %>
-  </p><br>
 
   <p><%= form.submit %></p><br>
 <% end %>
