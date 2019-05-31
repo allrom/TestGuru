@@ -19,7 +19,7 @@ class User < ApplicationRecord
   has_many :badges_users
   has_many :badges, through: :badges_users
 
-    def pick_by_level(difficulty_level)
+  def pick_by_level(difficulty_level)
     tests.where(level: difficulty_level)
   end
 

@@ -26,7 +26,8 @@ class TestPassagesController < ApplicationController
 
   def update
     if @test_passage.expired?
-      flash.now[:warning] = t('.expired')
+      flash[:warning] = t('.expired')
+      redirect_to result_test_passage_path(@test_passage) and return
     else
       @test_passage.accept!(params[:answer_ids])
     end

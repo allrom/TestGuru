@@ -26,7 +26,7 @@
     <h6 align = "center" class = "timing"><%= test_timing(@test) %></h6><br>
 
     <%= form.label :minutes %>
-    <%= form.number_field :minutes, min: 0, max: 59 %>&nbsp
+    <%= form.number_field :minutes, min: 0, max: 60 %>&nbsp
 
     <%= form.label :seconds %>
     <%= form.number_field :seconds, min: 0, max: 59 %>

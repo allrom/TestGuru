@@ -159,8 +159,8 @@ ru:
         category: "Выберите Категорию"
         header_if_html: "Построить новый Тест"
         header_else_html: "Изменить Тест <i>%{title}</i>"
-        test_lasting: "Время Прохождения(задано):"
-        test_lasting_else: "Время Прохождения:"
+        test_interval: "Время Прохождения(задано):"
+        test_interval_else: "Время Прохождения:"
       form_inline:
         submit: "OK"
 
