@@ -41,7 +41,7 @@ gem 'bootstrap', '~> 4.3.1'
 gem 'validates_email_format_of'
 
 # AUTH mega-module
-gem 'devise', '~> 4.0'
+gem 'devise', '~> 4.7'
 
 # Localization:
 gem 'rails-i18n', '~> 5.0'
